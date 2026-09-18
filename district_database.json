@@ -1,0 +1,598 @@
+{
+  "Madhya Pradesh": [
+    {
+      "name": "Agar-Malwa",
+      "lgd": "667"
+    },
+    {
+      "name": "Alirajpur",
+      "lgd": "639"
+    },
+    {
+      "name": "Anuppur",
+      "lgd": "390"
+    },
+    {
+      "name": "Ashoknagar",
+      "lgd": "391"
+    },
+    {
+      "name": "Balaghat",
+      "lgd": "392"
+    },
+    {
+      "name": "Barwani",
+      "lgd": "393"
+    },
+    {
+      "name": "Betul",
+      "lgd": "394"
+    },
+    {
+      "name": "Bhind",
+      "lgd": "395"
+    },
+    {
+      "name": "Bhopal",
+      "lgd": "396"
+    },
+    {
+      "name": "Burhanpur",
+      "lgd": "397"
+    },
+    {
+      "name": "Chhatarpur",
+      "lgd": "398"
+    },
+    {
+      "name": "Chhindwara",
+      "lgd": "399"
+    },
+    {
+      "name": "Damoh",
+      "lgd": "400"
+    },
+    {
+      "name": "Datia",
+      "lgd": "401"
+    },
+    {
+      "name": "Dewas",
+      "lgd": "402"
+    },
+    {
+      "name": "Dhar",
+      "lgd": "403"
+    },
+    {
+      "name": "Dindori",
+      "lgd": "404"
+    },
+    {
+      "name": "Guna",
+      "lgd": "406"
+    },
+    {
+      "name": "Gwalior",
+      "lgd": "407"
+    },
+    {
+      "name": "Harda",
+      "lgd": "408"
+    },
+    {
+      "name": "Indore",
+      "lgd": "410"
+    },
+    {
+      "name": "Jabalpur",
+      "lgd": "411"
+    },
+    {
+      "name": "Jhabua",
+      "lgd": "412"
+    },
+    {
+      "name": "Katni",
+      "lgd": "413"
+    },
+    {
+      "name": "Khandwa (East Nimar)",
+      "lgd": "405"
+    },
+    {
+      "name": "Khargone (West Nimar)",
+      "lgd": "414"
+    },
+    {
+      "name": "MAUGANJ",
+      "lgd": "766"
+    },
+    {
+      "name": "Maihar",
+      "lgd": "784"
+    },
+    {
+      "name": "Mandla",
+      "lgd": "415"
+    },
+    {
+      "name": "Mandsaur",
+      "lgd": "416"
+    },
+    {
+      "name": "Morena",
+      "lgd": "417"
+    },
+    {
+      "name": "Narmadapuram",
+      "lgd": "409"
+    },
+    {
+      "name": "Narsimhapur",
+      "lgd": "418"
+    },
+    {
+      "name": "Neemuch",
+      "lgd": "419"
+    },
+    {
+      "name": "Niwari",
+      "lgd": "722"
+    },
+    {
+      "name": "Pandhurna",
+      "lgd": "785"
+    },
+    {
+      "name": "Panna",
+      "lgd": "420"
+    },
+    {
+      "name": "Raisen",
+      "lgd": "421"
+    },
+    {
+      "name": "Rajgarh",
+      "lgd": "422"
+    },
+    {
+      "name": "Ratlam",
+      "lgd": "423"
+    },
+    {
+      "name": "Rewa",
+      "lgd": "424"
+    },
+    {
+      "name": "Sagar",
+      "lgd": "425"
+    },
+    {
+      "name": "Satna",
+      "lgd": "426"
+    },
+    {
+      "name": "Sehore",
+      "lgd": "427"
+    },
+    {
+      "name": "Seoni",
+      "lgd": "428"
+    },
+    {
+      "name": "Shahdol",
+      "lgd": "429"
+    },
+    {
+      "name": "Shajapur",
+      "lgd": "430"
+    },
+    {
+      "name": "Sheopur",
+      "lgd": "431"
+    },
+    {
+      "name": "Shivpuri",
+      "lgd": "432"
+    },
+    {
+      "name": "Sidhi",
+      "lgd": "433"
+    },
+    {
+      "name": "Singrauli",
+      "lgd": "638"
+    },
+    {
+      "name": "Tikamgarh",
+      "lgd": "434"
+    },
+    {
+      "name": "Ujjain",
+      "lgd": "435"
+    },
+    {
+      "name": "Umaria",
+      "lgd": "436"
+    },
+    {
+      "name": "Vidisha",
+      "lgd": "437"
+    }
+  ],
+  "Chhattisgarh": [
+    {
+      "name": "Balod",
+      "lgd": "646"
+    },
+    {
+      "name": "Balodabazar-Bhatapara",
+      "lgd": "644"
+    },
+    {
+      "name": "Balrampur-Ramanujganj",
+      "lgd": "649"
+    },
+    {
+      "name": "Bastar",
+      "lgd": "374"
+    },
+    {
+      "name": "Bemetara",
+      "lgd": "650"
+    },
+    {
+      "name": "Bijapur",
+      "lgd": "636"
+    },
+    {
+      "name": "Bilaspur",
+      "lgd": "375"
+    },
+    {
+      "name": "Dakshin Bastar Dantewada",
+      "lgd": "376"
+    },
+    {
+      "name": "Dhamtari",
+      "lgd": "377"
+    },
+    {
+      "name": "Durg",
+      "lgd": "378"
+    },
+    {
+      "name": "Gariyaband",
+      "lgd": "645"
+    },
+    {
+      "name": "Gaurela-Pendra-Marwahi",
+      "lgd": "734"
+    },
+    {
+      "name": "Janjgir-Champa",
+      "lgd": "379"
+    },
+    {
+      "name": "Jashpur",
+      "lgd": "380"
+    },
+    {
+      "name": "Kabeerdham",
+      "lgd": "382"
+    },
+    {
+      "name": "Khairagarh-Chhuikhadan-Gandai",
+      "lgd": "759"
+    },
+    {
+      "name": "Kondagaon",
+      "lgd": "643"
+    },
+    {
+      "name": "Korba",
+      "lgd": "383"
+    },
+    {
+      "name": "Korea",
+      "lgd": "384"
+    },
+    {
+      "name": "Mahasamund",
+      "lgd": "385"
+    },
+    {
+      "name": "Manendragarh-Chirmiri-Bharatpur(M C B)",
+      "lgd": "760"
+    },
+    {
+      "name": "Mohla-Manpur-Ambagarh Chouki",
+      "lgd": "761"
+    },
+    {
+      "name": "Mungeli",
+      "lgd": "647"
+    },
+    {
+      "name": "Narayanpur",
+      "lgd": "637"
+    },
+    {
+      "name": "Raigarh",
+      "lgd": "386"
+    },
+    {
+      "name": "Raipur",
+      "lgd": "387"
+    },
+    {
+      "name": "Rajnandgaon",
+      "lgd": "388"
+    },
+    {
+      "name": "Sakti",
+      "lgd": "762"
+    },
+    {
+      "name": "Sarangarh-Bilaigarh",
+      "lgd": "763"
+    },
+    {
+      "name": "Sukma",
+      "lgd": "642"
+    },
+    {
+      "name": "Surajpur",
+      "lgd": "648"
+    },
+    {
+      "name": "Surguja",
+      "lgd": "389"
+    },
+    {
+      "name": "Uttar Bastar Kanker",
+      "lgd": "381"
+    }
+  ],
+  "Assam": [
+    {
+      "name": "Bajali",
+      "lgd": "739"
+    },
+    {
+      "name": "Baksa",
+      "lgd": "616"
+    },
+    {
+      "name": "Barpeta",
+      "lgd": "280"
+    },
+    {
+      "name": "Biswanath",
+      "lgd": "705"
+    },
+    {
+      "name": "Bongaigaon",
+      "lgd": "281"
+    },
+    {
+      "name": "Cachar",
+      "lgd": "282"
+    },
+    {
+      "name": "Charaideo",
+      "lgd": "708"
+    },
+    {
+      "name": "Chirang",
+      "lgd": "612"
+    },
+    {
+      "name": "Darrang",
+      "lgd": "283"
+    },
+    {
+      "name": "Dhemaji",
+      "lgd": "284"
+    },
+    {
+      "name": "Dhubri",
+      "lgd": "285"
+    },
+    {
+      "name": "Dibrugarh",
+      "lgd": "286"
+    },
+    {
+      "name": "Dima Hasao",
+      "lgd": "299"
+    },
+    {
+      "name": "Goalpara",
+      "lgd": "287"
+    },
+    {
+      "name": "Golaghat",
+      "lgd": "288"
+    },
+    {
+      "name": "Hailakandi",
+      "lgd": "289"
+    },
+    {
+      "name": "Hojai",
+      "lgd": "709"
+    },
+    {
+      "name": "Jorhat",
+      "lgd": "290"
+    },
+    {
+      "name": "Kamrup",
+      "lgd": "291"
+    },
+    {
+      "name": "Kamrup Metro",
+      "lgd": "618"
+    },
+    {
+      "name": "Karbi Anglong",
+      "lgd": "292"
+    },
+    {
+      "name": "Kokrajhar",
+      "lgd": "294"
+    },
+    {
+      "name": "Lakhimpur",
+      "lgd": "295"
+    },
+    {
+      "name": "Majuli",
+      "lgd": "706"
+    },
+    {
+      "name": "Marigaon",
+      "lgd": "296"
+    },
+    {
+      "name": "Nagaon",
+      "lgd": "297"
+    },
+    {
+      "name": "Nalbari",
+      "lgd": "298"
+    },
+    {
+      "name": "Sivasagar",
+      "lgd": "300"
+    },
+    {
+      "name": "Sonitpur",
+      "lgd": "301"
+    },
+    {
+      "name": "South Salmara Mancachar",
+      "lgd": "707"
+    },
+    {
+      "name": "Sribhumi",
+      "lgd": "293"
+    },
+    {
+      "name": "Tamulpur",
+      "lgd": "756"
+    },
+    {
+      "name": "Tinsukia",
+      "lgd": "302"
+    },
+    {
+      "name": "Udalguri",
+      "lgd": "617"
+    },
+    {
+      "name": "West Karbi Anglong",
+      "lgd": "710"
+    }
+  ],
+  "Jharkhand": [
+    {
+      "name": "Bokaro",
+      "lgd": "322"
+    },
+    {
+      "name": "Chatra",
+      "lgd": "323"
+    },
+    {
+      "name": "Deoghar",
+      "lgd": "324"
+    },
+    {
+      "name": "Dhanbad",
+      "lgd": "325"
+    },
+    {
+      "name": "Dumka",
+      "lgd": "326"
+    },
+    {
+      "name": "East Singhbum",
+      "lgd": "327"
+    },
+    {
+      "name": "Garhwa",
+      "lgd": "328"
+    },
+    {
+      "name": "Giridih",
+      "lgd": "329"
+    },
+    {
+      "name": "Godda",
+      "lgd": "330"
+    },
+    {
+      "name": "Gumla",
+      "lgd": "331"
+    },
+    {
+      "name": "Hazaribagh",
+      "lgd": "332"
+    },
+    {
+      "name": "Jamtara",
+      "lgd": "333"
+    },
+    {
+      "name": "Khunti",
+      "lgd": "606"
+    },
+    {
+      "name": "Koderma",
+      "lgd": "334"
+    },
+    {
+      "name": "Latehar",
+      "lgd": "335"
+    },
+    {
+      "name": "Lohardaga",
+      "lgd": "336"
+    },
+    {
+      "name": "Pakur",
+      "lgd": "337"
+    },
+    {
+      "name": "Palamu",
+      "lgd": "338"
+    },
+    {
+      "name": "Ramgarh",
+      "lgd": "607"
+    },
+    {
+      "name": "Ranchi",
+      "lgd": "339"
+    },
+    {
+      "name": "Sahebganj",
+      "lgd": "340"
+    },
+    {
+      "name": "Saraikela Kharsawan",
+      "lgd": "341"
+    },
+    {
+      "name": "Simdega",
+      "lgd": "342"
+    },
+    {
+      "name": "West Singhbhum",
+      "lgd": "343"
+    }
+  ]
+}

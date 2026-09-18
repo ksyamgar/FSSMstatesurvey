@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSSM &amp; URL Consolidated Survey</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0e7490;
+      --primary-dark: #0c5c73;
+      --primary-light: #e0f2f5;
+      --accent: #0e7490;
+      --ink: #1e293b;
+      --muted: #64748b;
+      --border: #dde3e8;
+      --bg: #f4f7f8;
+      --card: #ffffff;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(14, 116, 144, 0.025) 0%, transparent 45%),
+        radial-gradient(circle at 80% 65%, rgba(20, 184, 166, 0.02) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bodyAmbientAura 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes bodyAmbientAura {
+      0% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0.9;
+        transform: scale(1.04);
+      }
+    }
+
+    /* ---------- Enhanced Hero Header with Smooth Fluid Gradient & Lite Ambient Motion ---------- */
+    .app-header {
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 18%, #bce5f2 23%, #1e708a 29%, #094052 35%, #052633 60%, #031a23 100%);
+      color: #fff;
+      padding: 16px 20px 52px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(14, 116, 144, 0.2);
+    }
+
+    .app-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      opacity: 0.5;
+      animation: headerGridDrift 40s linear infinite;
+    }
+
+    .app-header::after {
+      content: "";
+      position: absolute;
+      top: 15%;
+      right: -5%;
+      width: 520px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.09) 0%, rgba(20, 184, 166, 0.05) 45%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(45px);
+      pointer-events: none;
+      z-index: 1;
+      animation: headerGlowFloat 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes headerGridDrift {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 48px 48px;
+      }
+    }
+
+    @keyframes headerGlowFloat {
+      0% {
+        transform: translate(0, 0) scale(0.95);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translate(-35px, 20px) scale(1.1);
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: translate(-70px, -10px) scale(1);
+        opacity: 0.5;
+      }
+    }
+
+    .app-header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Integrated Logos Bar: Clean, No White Boxes (Sits directly on White Top) */
+    .banner-logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      flex-wrap: wrap;
+    }
+
+    .banner-logo-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-logo {
+      object-fit: contain;
+      display: block;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .banner-logo:hover {
+      transform: scale(1.04);
+    }
+
+    .banner-logo-sbm {
+      height: 44px;
+      width: auto;
+    }
+
+    .banner-logo-cg {
+      height: 48px;
+      width: auto;
+    }
+
+    .banner-logo-unicef {
+      height: 38px;
+      width: auto;
+    }
+
+    .banner-partner-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .banner-partner-divider {
+      width: 1px;
+      height: 32px;
+      background: #cbd5e1;
+    }
+
+    .official-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .official-trust-pill i {
+      color: #16a34a;
+      font-size: 12px;
+    }
+
+    .header-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .header-protocol-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .header-protocol-pill i {
+      color: #38bdf8;
+    }
+
+    .app-title {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .header-icon-box {
+      flex: 0 0 52px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(6, 49, 64, 0.3));
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .header-icon-box i {
+      font-size: 24px;
+      color: #38bdf8;
+      filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.6));
+    }
+
+    .app-title h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(6, 49, 64, 0.45);
+    }
+
+    .app-title p {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #f1f5f9;
+      opacity: 0.95;
+      max-width: 700px;
+      text-shadow: 0 1px 6px rgba(6, 49, 64, 0.35);
+    }
+
+    .header-meta-tags {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .header-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .header-meta-item i {
+      color: #2dd4bf;
+      font-size: 11.5px;
+    }
+
+    .br-desktop {
+      display: none;
+    }
+
+    @media (min-width: 760px) {
+      .br-desktop {
+        display: inline;
+      }
+    }
+
+    /* ---------- Master Stepper Panel (ZERO SCROLLBAR) ---------- */
+    .stepper-panel {
+      max-width: 980px;
+      margin: -24px auto 20px;
+      padding: 14px 18px 14px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+      position: relative;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    /* Stepper Status Row */
+    .stepper-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .stepper-left-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .stepper-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .stepper-badge i {
+      color: var(--primary);
+    }
+
+    .stepper-active-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1e293b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .stepper-pct-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Progress Track */
+    .stepper-track-wrap {
+      width: 100%;
+      height: 6px;
+      background: #edf2f7;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .stepper-track-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0e7490 0%, #0d9488 50%, #16a34a 100%);
+      border-radius: 999px;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 8px rgba(13, 148, 136, 0.4);
+    }
+
+    /* 5-Column Navigation Grid - No Horizontal Scrollbar! */
+    .stepper-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .step-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 10px 10px 9px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      overflow: hidden;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .step-card:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .step-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    .step-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .step-badge .step-done-icon {
+      display: none;
+    }
+
+    .step-icon {
+      font-size: 13px;
+      color: #94a3b8;
+      transition: all 0.2s ease;
+    }
+
+    .step-card-body {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .step-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .step-sub {
+      font-size: 10px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    /* Active Step Styling */
+    .step-card.active {
+      background: linear-gradient(180deg, #ffffff 0%, color-mix(in srgb, var(--accent) 7%, white) 100%);
+      border-color: var(--accent);
+      box-shadow: 0 6px 16px -2px color-mix(in srgb, var(--accent) 22%, transparent), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .step-card.active .step-badge {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 6px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+
+    .step-card.active .step-icon {
+      color: var(--accent);
+    }
+
+    .step-card.active .step-title {
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .step-card.active .step-sub {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .step-card .step-active-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .step-card.active .step-active-indicator {
+      background: var(--accent);
+    }
+
+    /* Completed Step Styling */
+    .step-card.completed {
+      border-color: #d1fae5;
+      background: #fcfdfd;
+    }
+
+    .step-card.completed:hover {
+      border-color: #10b981;
+    }
+
+    .step-card.completed .step-badge {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+
+    .step-card.completed .step-badge .step-num {
+      display: none;
+    }
+
+    .step-card.completed .step-badge .step-done-icon {
+      display: inline-block;
+      font-size: 10px;
+    }
+
+    .step-card.completed .step-icon {
+      color: #059669;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .step-card {
+        padding: 8px 6px 8px;
+      }
+
+      .step-title {
+        font-size: 11.5px;
+      }
+
+      .step-sub {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-header {
+        padding: 24px 16px 36px;
+      }
+
+      .app-title {
+        gap: 12px;
+      }
+
+      .header-icon-box {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+      }
+
+      .header-icon-box i {
+        font-size: 20px;
+      }
+
+      .app-title h1 {
+        font-size: 17.5px;
+      }
+
+      .stepper-panel {
+        margin: -18px 12px 18px;
+        padding: 12px 10px;
+        border-radius: 12px;
+      }
+
+      .stepper-status-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .stepper-pct-badge {
+        align-self: flex-end;
+      }
+
+      .stepper-nav-grid {
+        gap: 5px;
+      }
+
+      .step-card {
+        padding: 6px 3px;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      .step-card-header {
+        justify-content: center;
+        gap: 4px;
+        margin-bottom: 2px;
+      }
+
+      .step-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 9.5px;
+      }
+
+      .step-icon {
+        display: none;
+      }
+
+      .step-title {
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+
+    /* ---------- Layout ---------- */
+    .app-wrap {
+      max-width: 780px;
+      margin: 20px auto 40px;
+      padding: 0 20px;
+    }
+
+    .survey-section {
+      display: none;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 22px 28px;
+      animation: fadeIn .25s ease;
+    }
+
+    .survey-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-head {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-icon {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--accent) 14%, white);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .section-desc {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .subheading {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      color: var(--accent);
+      margin: 26px 0 12px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .survey-section .subheading:first-of-type {
+      margin-top: 4px;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    /* ---------- Fields ---------- */
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .field-icon {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    .req {
+      color: var(--danger);
+      font-weight: 800;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0 12px;
+      margin-bottom: 4px;
+    }
+
+    .field-grid .field {
+      margin-bottom: 14px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--ink);
+      background: #fff;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 64px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path d="M1 1l5 5 5-5" stroke="%2364748b" stroke-width="2" fill="none"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 34px;
+    }
+
+    input.swapped-text {
+      border-style: dashed;
+    }
+
+    .input-with-unit {
+      position: relative;
+    }
+
+    .input-with-unit input {
+      padding-right: 92px;
+    }
+
+    .unit-badge {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      pointer-events: none;
+      max-width: 90px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .field-error {
+      min-height: 15px;
+      margin: 4px 0 0;
+      font-size: 11.5px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    /* Tooltip */
+    .tip-btn {
+      border: none;
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+      font-size: 13px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      min-height: 18px;
+    }
+
+    .tip-btn:hover {
+      color: var(--primary);
+    }
+
+    .tip-bubble {
+      position: absolute;
+      z-index: 20;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      padding: 8px 10px;
+      border-radius: 8px;
+      width: max-content;
+      max-width: 240px;
+      box-shadow: var(--shadow);
+    }
+
+    .tip-bubble::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #1e293b;
+    }
+
+    /* Checkboxes */
+    .chk-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chk-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 7px 13px;
+      font-size: 12.5px;
+      cursor: pointer;
+      background: #fff;
+      transition: all .15s ease;
+    }
+
+    .chk-pill:has(input:checked) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .chk-pill input {
+      accent-color: var(--primary);
+    }
+
+    .chk-other-text {
+      margin-top: 8px;
+    }
+
+    /* File uploads */
+    .file-drop {
+      position: relative;
+      border: 1.5px dashed var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      background: #fafcfd;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .file-drop:hover {
+      border-color: var(--primary);
+    }
+
+    .file-drop input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .file-drop-hint {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .file-drop-hint i {
+      color: var(--primary);
+      margin-right: 6px;
+    }
+
+    .file-drop-list {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .file-chip {
+      font-size: 11.5px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+    .file-warn {
+      font-size: 11px;
+      color: #b45309;
+      text-align: left;
+    }
+
+    /* ---------- Nav buttons ---------- */
+    .form-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .1s ease, opacity .15s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+    }
+
+    .btn-ghost:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      margin-left: auto;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-submit {
+      background: var(--success);
+      color: #fff;
+      margin-left: auto;
+    }
+
+    .btn-submit:hover {
+      background: #14833f;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    /* ---------- Success / error ---------- */
+    .success-screen {
+      display: none;
+      min-height: 70vh;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .success-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 380px;
+    }
+
+    .success-icon {
+      font-size: 52px;
+      color: var(--success);
+      margin-bottom: 14px;
+    }
+
+    .success-card h2 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .success-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .success-card .btn {
+      margin: 0 auto;
+    }
+
+    .error-toast {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow);
+      max-width: 90vw;
+      z-index: 50;
+    }
+
+    /* ---------- Top Institutional Branding Navbar ---------- */
+    .top-navbar {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+      position: relative;
+      z-index: 40;
+    }
+
+    .top-navbar-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .navbar-brand-side {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .navbar-logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .navbar-logo-cg {
+      height: 48px;
+    }
+
+    .navbar-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .navbar-brand-gov {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.2px;
+    }
+
+    .navbar-brand-dept {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .navbar-partners-side {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .navbar-partner-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-logo-sbm {
+      height: 38px;
+    }
+
+    .navbar-logo-unicef {
+      height: 36px;
+    }
+
+    .navbar-divider {
+      width: 1px;
+      height: 28px;
+      background: #e2e8f0;
+    }
+
+    .official-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: #f0fdf4;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ---------- Minimal & Cool Monolithic Footer ---------- */
+    .app-footer {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14, 116, 144, 0.12), transparent 70%),
+        linear-gradient(180deg, #071922 0%, #030d12 100%);
+      border-top: 1px solid rgba(56, 189, 248, 0.16);
+      color: #94a3b8;
+      padding: 34px 24px 22px;
+      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      animation: footerGridDrift 50s linear infinite;
+    }
+
+    @keyframes footerGridDrift {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -48px -48px;
+      }
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Footer Top Row */
+    .footer-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-partners-badge {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 5px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .footer-partners-badge:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .footer-logo-cg {
+      height: 38px;
+      width: auto;
+    }
+
+    .footer-logo-sbm {
+      height: 34px;
+      width: auto;
+    }
+
+    .footer-logo-unicef {
+      height: 28px;
+      width: auto;
+    }
+
+    .footer-logo-sep {
+      width: 1px;
+      height: 22px;
+      background: #e2e8f0;
+    }
+
+    .footer-badge-side {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      color: #cbd5e1;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-trust-pill i {
+      color: #38bdf8;
+      font-size: 11px;
+    }
+
+    /* Minimal 3-Column Info Grid */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1.1fr 1fr;
+      gap: 30px;
+      margin-bottom: 24px;
+    }
+
+    .footer-col-header {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-accent-icon {
+      color: #38bdf8;
+      font-size: 12.5px;
+    }
+
+    .footer-col-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+
+    .footer-meta-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .footer-pill-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .footer-modules-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-mini-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #cbd5e1;
+    }
+
+    .footer-mini-chip span {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    .footer-minimal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .footer-minimal-list strong {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    /* Bottom Centered Single Line Strip */
+    .footer-bottom-strip {
+      text-align: center;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-single-line {
+      margin: 0 auto;
+      font-size: 11.5px;
+      color: #64748b;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .footer-version-tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 5px;
+      color: #64748b;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-footer {
+        padding: 28px 16px 18px;
+      }
+
+      .footer-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .footer-bottom-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-title h1 {
+        font-size: 17.5px;
+      }
+
+      .survey-section {
+        padding: 18px 16px 22px;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="formTop"></div>
+
+  <header class="app-header">
+    <div class="app-header-inner">
+      <!-- Integrated Institutional Logos Row inside Blue Banner (Clean, No White Boxes) -->
+      <div class="banner-logos-row">
+        <!-- Leftest: Swachh Bharat Mission Logo -->
+        <div class="banner-logo-item" title="Swachh Bharat Mission">
+          <img src="images/SBM%20logo21.png" alt="Swachh Bharat Mission" class="banner-logo banner-logo-sbm">
+        </div>
+
+        <!-- Right Group: Chhattisgarh State Logo to the left of UNICEF, without text -->
+        <div class="banner-partner-group">
+          <div class="banner-logo-item" title="Government of Chhattisgarh">
+            <img src="images/ChhattisgarhGovt.png" alt="Government of Chhattisgarh" class="banner-logo banner-logo-cg">
+          </div>
+          <div class="banner-partner-divider"></div>
+          <div class="banner-logo-item" title="UNICEF">
+            <img src="images/UNICEF%20logo.png" alt="UNICEF" class="banner-logo banner-logo-unicef">
+          </div>
+          <div class="official-trust-pill">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Official Survey Portal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagnostic Protocol Badges -->
+      <div class="header-badge-row">
+        <span class="header-protocol-pill"><i class="fa-solid fa-shield-halved"></i> Official Baseline Survey
+          Protocol</span>
+        <span class="header-protocol-pill"><i class="fa-solid fa-layer-group" style="color: #2dd4bf;"></i> 5 Integrated
+          Modules</span>
+      </div>
+
+      <!-- Main Title & Description -->
+      <div class="app-title">
+        <div class="header-icon-box">
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+        <div>
+          <h1>Faecal Sludge &amp; Septage Management (FSSM) <br class="br-desktop">&amp; Urban-Rural Linkage (URL)
+            Consolidated Survey</h1>
+          <p>A unified, section-wise field assessment consolidating Desludging Vehicle Operators, ULB Officials,
+            FSTP/STP Technical Assessment, and Gram Panchayat diagnostics.</p>
+        </div>
+      </div>
+
+      <div class="header-meta-tags">
+        <span class="header-meta-item"><i class="fa-solid fa-clipboard-check"></i> Government &amp; UNICEF Joint
+          Initiative</span>
+        <span class="header-meta-item"><i class="fa-solid fa-location-dot"></i> Statewide Field Coverage</span>
+        <span class="header-meta-item"><i class="fa-solid fa-cloud-arrow-up"></i> Instant Module Navigation</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- High-End Master Stepper Dashboard (Zero Scrollbar - All 5 Tabs Visible) -->
+  <div class="stepper-panel" id="stepperContainer">
+    <div class="stepper-status-row">
+      <div class="stepper-left-info">
+        <span class="stepper-badge" id="stepBadge"><i class="fa-solid fa-layer-group"></i> SECTION 1 OF 5</span>
+        <span class="stepper-active-name" id="stepCurrentName">Survey Details</span>
+      </div>
+      <span class="stepper-pct-badge" id="stepPctBadge"><i class="fa-solid fa-chart-line"></i> 0% Complete</span>
+    </div>
+
+    <div class="stepper-track-wrap" title="Survey Progress">
+      <div id="progressBar" class="stepper-track-fill" style="width: 0%;"></div>
+    </div>
+
+    <nav id="sectionNav" class="stepper-nav-grid" aria-label="Survey sections navigation"></nav>
+  </div>
+
+  <main id="appWrap" class="app-wrap">
+    <form id="surveyForm" novalidate>
+      <div id="formSections"></div>
+
+      <div class="form-nav-buttons">
+        <button type="button" id="prevBtn" class="btn btn-ghost"><i class="fa-solid fa-arrow-left"></i>
+          Previous</button>
+        <button type="button" id="nextBtn" class="btn btn-primary">Next <i class="fa-solid fa-arrow-right"></i></button>
+        <button type="button" id="submitBtn" class="btn btn-submit" style="display:none"><i
+            class="fa-solid fa-paper-plane"></i> Submit Survey</button>
+      </div>
+    </form>
+  </main>
+
+  <div id="successScreen" class="success-screen">
+    <div class="success-card">
+      <i class="fa-solid fa-circle-check success-icon"></i>
+      <h2>Response recorded</h2>
+      <p>Thank you — this survey has been saved to the response sheet.</p>
+      <button type="button" id="newResponseBtn" class="btn btn-primary"><i class="fa-solid fa-rotate-left"></i> Submit
+        Another Response</button>
+    </div>
+  </div>
+
+  <div id="errorToast" class="error-toast">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span></span>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <!-- Top Partner & Trust Strip -->
+      <div class="footer-top-row">
+        <div class="footer-partners-badge">
+          <img src="images/SBM%20logo21.png" alt="Swachh Bharat Mission" class="footer-logo footer-logo-sbm">
+          <div class="footer-logo-sep"></div>
+          <img src="images/ChhattisgarhGovt.png" alt="Government of Chhattisgarh" class="footer-logo footer-logo-cg">
+          <div class="footer-logo-sep"></div>
+          <img src="images/UNICEF%20logo.png" alt="UNICEF" class="footer-logo footer-logo-unicef">
+        </div>
+        <div class="footer-badge-side">
+          <div class="footer-trust-pill">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Statewide Urban-Rural FSSM Strengthening Framework</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Minimal & Cool 3-Column Info Grid -->
+      <div class="footer-grid">
+        <!-- Col 1: Platform Overview -->
+        <div class="footer-col">
+          <div class="footer-col-header">
+            <i class="fa-solid fa-droplet footer-accent-icon"></i>
+            <span>Consolidated FSSM Platform</span>
+          </div>
+          <p class="footer-col-desc">
+            Statewide digital sanitation surveillance and planning instrument for faecal sludge, septage management,
+            co-treatment operations, and rural-urban convergence across Chhattisgarh.
+          </p>
+          <div class="footer-meta-tags">
+            <span class="footer-pill-tag">NFSSM Protocol</span>
+            <span class="footer-pill-tag">ODF++ / Water+</span>
+            <span class="footer-pill-tag">Co-Treatment</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Modules Quick Matrix -->
+        <div class="footer-col">
+          <div class="footer-col-header">
+            <i class="fa-solid fa-layer-group footer-accent-icon"></i>
+            <span>Survey Modules</span>
+          </div>
+          <div class="footer-modules-mini">
+            <div class="footer-mini-chip"><span>01</span> Survey Details &amp; Location</div>
+            <div class="footer-mini-chip"><span>02</span> ULB Institutional Details</div>
+            <div class="footer-mini-chip"><span>03</span> FSTP / STP Plant Specs</div>
+            <div class="footer-mini-chip"><span>04</span> Desludging Fleet &amp; Logistics</div>
+            <div class="footer-mini-chip"><span>05</span> Gram Panchayat Linkage</div>
+          </div>
+        </div>
+
+        <!-- Col 3: Institutional Governance -->
+        <div class="footer-col">
+          <div class="footer-col-header">
+            <i class="fa-solid fa-building-columns footer-accent-icon"></i>
+            <span>Institutional Custody</span>
+          </div>
+          <ul class="footer-minimal-list">
+            <li><strong>Nodal Dept:</strong> Urban Admin &amp; Dev Dept., Govt. of CG</li>
+            <li><strong>Technical Partner:</strong> UNICEF Chhattisgarh &amp; AIILSG</li>
+            <li><strong>Standards:</strong> CPHEEO &amp; SBM 2.0 Compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Centered Single Line Strip -->
+      <div class="footer-bottom-strip">
+        <p class="footer-single-line">
+          © Copyright © United Nations Children’s Fund (UNICEF) Chhattisgarh. All rights reserved. &bull; Designed by
+          Raj Yamgar @UNICEF 2025, India &bull; <span class="footer-version-tag">v2.4</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================================
+       FSSM & URL Consolidated Survey — client-side app
+       ----------------------------------------------------------------------------
+       Everything about the form — every question, its type, its unit, its
+       dropdown options, whether it's required — lives in the SECTIONS schema
+       below. The renderer at the bottom builds the actual HTML from this schema,
+       so to change the form you edit DATA here, not HTML in index.html.
+    
+       QUICK EDITS YOU'LL WANT LATER
+       ------------------------------------------------------------------------
+       1) PASTE YOUR APPS SCRIPT WEB APP URL
+          Search for CONFIG.SCRIPT_URL below and paste the URL you get after
+          deploying FSSM_Survey_Backend.gs (see the setup guide).
+    
+       2) ADD MORE STATES / DISTRICTS / ULBs
+          Search for "LOCATIONS" below. It's a plain nested object:
+            State -> District -> [ULB1, ULB2, ...]
+          Add as many as you like, in the same shape. A "Type manually" fallback
+          is always shown too, so nothing is ever blocked by a missing entry.
+    
+       3) MARK A QUESTION AS MANDATORY
+          Every question object below has `required: false`. Find the question
+          by its `id` (each one is commented with its original question number)
+          and change it to `required: true`. Required questions get a red
+          asterisk and block submission until answered.
+       ========================================================================== */
+
+    const CONFIG = {
+      // PASTE your Google Apps Script Web App URL here after deploying it
+      // (Deploy > New deployment > Web app > copy the "Web app URL").
+      SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzN0tQxwjuLqqwPREJ4QG2VScAfHqJTf-VZPqpUhGzSLLVZ7I2khs-_LGVRDk_FXEfuwA/exec",
+      MAX_FILE_MB: 8, // soft warning threshold per file
+    };
+
+    /* ---------------------------------------------------------------------------
+       1) DISTRICT DATABASE (with State & LGD Codes)
+       Loaded into State & District dropdowns. ULB / GP is filled manually.
+       --------------------------------------------------------------------------- */
+    const DISTRICT_DATABASE = {
+      "Madhya Pradesh": [
+        {
+          "name": "Agar-Malwa",
+          "lgd": "667"
+        },
+        {
+          "name": "Alirajpur",
+          "lgd": "639"
+        },
+        {
+          "name": "Anuppur",
+          "lgd": "390"
+        },
+        {
+          "name": "Ashoknagar",
+          "lgd": "391"
+        },
+        {
+          "name": "Balaghat",
+          "lgd": "392"
+        },
+        {
+          "name": "Barwani",
+          "lgd": "393"
+        },
+        {
+          "name": "Betul",
+          "lgd": "394"
+        },
+        {
+          "name": "Bhind",
+          "lgd": "395"
+        },
+        {
+          "name": "Bhopal",
+          "lgd": "396"
+        },
+        {
+          "name": "Burhanpur",
+          "lgd": "397"
+        },
+        {
+          "name": "Chhatarpur",
+          "lgd": "398"
+        },
+        {
+          "name": "Chhindwara",
+          "lgd": "399"
+        },
+        {
+          "name": "Damoh",
+          "lgd": "400"
+        },
+        {
+          "name": "Datia",
+          "lgd": "401"
+        },
+        {
+          "name": "Dewas",
+          "lgd": "402"
+        },
+        {
+          "name": "Dhar",
+          "lgd": "403"
+        },
+        {
+          "name": "Dindori",
+          "lgd": "404"
+        },
+        {
+          "name": "Guna",
+          "lgd": "406"
+        },
+        {
+          "name": "Gwalior",
+          "lgd": "407"
+        },
+        {
+          "name": "Harda",
+          "lgd": "408"
+        },
+        {
+          "name": "Indore",
+          "lgd": "410"
+        },
+        {
+          "name": "Jabalpur",
+          "lgd": "411"
+        },
+        {
+          "name": "Jhabua",
+          "lgd": "412"
+        },
+        {
+          "name": "Katni",
+          "lgd": "413"
+        },
+        {
+          "name": "Khandwa (East Nimar)",
+          "lgd": "405"
+        },
+        {
+          "name": "Khargone (West Nimar)",
+          "lgd": "414"
+        },
+        {
+          "name": "MAUGANJ",
+          "lgd": "766"
+        },
+        {
+          "name": "Maihar",
+          "lgd": "784"
+        },
+        {
+          "name": "Mandla",
+          "lgd": "415"
+        },
+        {
+          "name": "Mandsaur",
+          "lgd": "416"
+        },
+        {
+          "name": "Morena",
+          "lgd": "417"
+        },
+        {
+          "name": "Narmadapuram",
+          "lgd": "409"
+        },
+        {
+          "name": "Narsimhapur",
+          "lgd": "418"
+        },
+        {
+          "name": "Neemuch",
+          "lgd": "419"
+        },
+        {
+          "name": "Niwari",
+          "lgd": "722"
+        },
+        {
+          "name": "Pandhurna",
+          "lgd": "785"
+        },
+        {
+          "name": "Panna",
+          "lgd": "420"
+        },
+        {
+          "name": "Raisen",
+          "lgd": "421"
+        },
+        {
+          "name": "Rajgarh",
+          "lgd": "422"
+        },
+        {
+          "name": "Ratlam",
+          "lgd": "423"
+        },
+        {
+          "name": "Rewa",
+          "lgd": "424"
+        },
+        {
+          "name": "Sagar",
+          "lgd": "425"
+        },
+        {
+          "name": "Satna",
+          "lgd": "426"
+        },
+        {
+          "name": "Sehore",
+          "lgd": "427"
+        },
+        {
+          "name": "Seoni",
+          "lgd": "428"
+        },
+        {
+          "name": "Shahdol",
+          "lgd": "429"
+        },
+        {
+          "name": "Shajapur",
+          "lgd": "430"
+        },
+        {
+          "name": "Sheopur",
+          "lgd": "431"
+        },
+        {
+          "name": "Shivpuri",
+          "lgd": "432"
+        },
+        {
+          "name": "Sidhi",
+          "lgd": "433"
+        },
+        {
+          "name": "Singrauli",
+          "lgd": "638"
+        },
+        {
+          "name": "Tikamgarh",
+          "lgd": "434"
+        },
+        {
+          "name": "Ujjain",
+          "lgd": "435"
+        },
+        {
+          "name": "Umaria",
+          "lgd": "436"
+        },
+        {
+          "name": "Vidisha",
+          "lgd": "437"
+        }
+      ],
+      "Chhattisgarh": [
+        {
+          "name": "Balod",
+          "lgd": "646"
+        },
+        {
+          "name": "Balodabazar-Bhatapara",
+          "lgd": "644"
+        },
+        {
+          "name": "Balrampur-Ramanujganj",
+          "lgd": "649"
+        },
+        {
+          "name": "Bastar",
+          "lgd": "374"
+        },
+        {
+          "name": "Bemetara",
+          "lgd": "650"
+        },
+        {
+          "name": "Bijapur",
+          "lgd": "636"
+        },
+        {
+          "name": "Bilaspur",
+          "lgd": "375"
+        },
+        {
+          "name": "Dakshin Bastar Dantewada",
+          "lgd": "376"
+        },
+        {
+          "name": "Dhamtari",
+          "lgd": "377"
+        },
+        {
+          "name": "Durg",
+          "lgd": "378"
+        },
+        {
+          "name": "Gariyaband",
+          "lgd": "645"
+        },
+        {
+          "name": "Gaurela-Pendra-Marwahi",
+          "lgd": "734"
+        },
+        {
+          "name": "Janjgir-Champa",
+          "lgd": "379"
+        },
+        {
+          "name": "Jashpur",
+          "lgd": "380"
+        },
+        {
+          "name": "Kabeerdham",
+          "lgd": "382"
+        },
+        {
+          "name": "Khairagarh-Chhuikhadan-Gandai",
+          "lgd": "759"
+        },
+        {
+          "name": "Kondagaon",
+          "lgd": "643"
+        },
+        {
+          "name": "Korba",
+          "lgd": "383"
+        },
+        {
+          "name": "Korea",
+          "lgd": "384"
+        },
+        {
+          "name": "Mahasamund",
+          "lgd": "385"
+        },
+        {
+          "name": "Manendragarh-Chirmiri-Bharatpur(M C B)",
+          "lgd": "760"
+        },
+        {
+          "name": "Mohla-Manpur-Ambagarh Chouki",
+          "lgd": "761"
+        },
+        {
+          "name": "Mungeli",
+          "lgd": "647"
+        },
+        {
+          "name": "Narayanpur",
+          "lgd": "637"
+        },
+        {
+          "name": "Raigarh",
+          "lgd": "386"
+        },
+        {
+          "name": "Raipur",
+          "lgd": "387"
+        },
+        {
+          "name": "Rajnandgaon",
+          "lgd": "388"
+        },
+        {
+          "name": "Sakti",
+          "lgd": "762"
+        },
+        {
+          "name": "Sarangarh-Bilaigarh",
+          "lgd": "763"
+        },
+        {
+          "name": "Sukma",
+          "lgd": "642"
+        },
+        {
+          "name": "Surajpur",
+          "lgd": "648"
+        },
+        {
+          "name": "Surguja",
+          "lgd": "389"
+        },
+        {
+          "name": "Uttar Bastar Kanker",
+          "lgd": "381"
+        }
+      ],
+      "Assam": [
+        {
+          "name": "Bajali",
+          "lgd": "739"
+        },
+        {
+          "name": "Baksa",
+          "lgd": "616"
+        },
+        {
+          "name": "Barpeta",
+          "lgd": "280"
+        },
+        {
+          "name": "Biswanath",
+          "lgd": "705"
+        },
+        {
+          "name": "Bongaigaon",
+          "lgd": "281"
+        },
+        {
+          "name": "Cachar",
+          "lgd": "282"
+        },
+        {
+          "name": "Charaideo",
+          "lgd": "708"
+        },
+        {
+          "name": "Chirang",
+          "lgd": "612"
+        },
+        {
+          "name": "Darrang",
+          "lgd": "283"
+        },
+        {
+          "name": "Dhemaji",
+          "lgd": "284"
+        },
+        {
+          "name": "Dhubri",
+          "lgd": "285"
+        },
+        {
+          "name": "Dibrugarh",
+          "lgd": "286"
+        },
+        {
+          "name": "Dima Hasao",
+          "lgd": "299"
+        },
+        {
+          "name": "Goalpara",
+          "lgd": "287"
+        },
+        {
+          "name": "Golaghat",
+          "lgd": "288"
+        },
+        {
+          "name": "Hailakandi",
+          "lgd": "289"
+        },
+        {
+          "name": "Hojai",
+          "lgd": "709"
+        },
+        {
+          "name": "Jorhat",
+          "lgd": "290"
+        },
+        {
+          "name": "Kamrup",
+          "lgd": "291"
+        },
+        {
+          "name": "Kamrup Metro",
+          "lgd": "618"
+        },
+        {
+          "name": "Karbi Anglong",
+          "lgd": "292"
+        },
+        {
+          "name": "Kokrajhar",
+          "lgd": "294"
+        },
+        {
+          "name": "Lakhimpur",
+          "lgd": "295"
+        },
+        {
+          "name": "Majuli",
+          "lgd": "706"
+        },
+        {
+          "name": "Marigaon",
+          "lgd": "296"
+        },
+        {
+          "name": "Nagaon",
+          "lgd": "297"
+        },
+        {
+          "name": "Nalbari",
+          "lgd": "298"
+        },
+        {
+          "name": "Sivasagar",
+          "lgd": "300"
+        },
+        {
+          "name": "Sonitpur",
+          "lgd": "301"
+        },
+        {
+          "name": "South Salmara Mancachar",
+          "lgd": "707"
+        },
+        {
+          "name": "Sribhumi",
+          "lgd": "293"
+        },
+        {
+          "name": "Tamulpur",
+          "lgd": "756"
+        },
+        {
+          "name": "Tinsukia",
+          "lgd": "302"
+        },
+        {
+          "name": "Udalguri",
+          "lgd": "617"
+        },
+        {
+          "name": "West Karbi Anglong",
+          "lgd": "710"
+        }
+      ],
+      "Jharkhand": [
+        {
+          "name": "Bokaro",
+          "lgd": "322"
+        },
+        {
+          "name": "Chatra",
+          "lgd": "323"
+        },
+        {
+          "name": "Deoghar",
+          "lgd": "324"
+        },
+        {
+          "name": "Dhanbad",
+          "lgd": "325"
+        },
+        {
+          "name": "Dumka",
+          "lgd": "326"
+        },
+        {
+          "name": "East Singhbum",
+          "lgd": "327"
+        },
+        {
+          "name": "Garhwa",
+          "lgd": "328"
+        },
+        {
+          "name": "Giridih",
+          "lgd": "329"
+        },
+        {
+          "name": "Godda",
+          "lgd": "330"
+        },
+        {
+          "name": "Gumla",
+          "lgd": "331"
+        },
+        {
+          "name": "Hazaribagh",
+          "lgd": "332"
+        },
+        {
+          "name": "Jamtara",
+          "lgd": "333"
+        },
+        {
+          "name": "Khunti",
+          "lgd": "606"
+        },
+        {
+          "name": "Koderma",
+          "lgd": "334"
+        },
+        {
+          "name": "Latehar",
+          "lgd": "335"
+        },
+        {
+          "name": "Lohardaga",
+          "lgd": "336"
+        },
+        {
+          "name": "Pakur",
+          "lgd": "337"
+        },
+        {
+          "name": "Palamu",
+          "lgd": "338"
+        },
+        {
+          "name": "Ramgarh",
+          "lgd": "607"
+        },
+        {
+          "name": "Ranchi",
+          "lgd": "339"
+        },
+        {
+          "name": "Sahebganj",
+          "lgd": "340"
+        },
+        {
+          "name": "Saraikela Kharsawan",
+          "lgd": "341"
+        },
+        {
+          "name": "Simdega",
+          "lgd": "342"
+        },
+        {
+          "name": "West Singhbhum",
+          "lgd": "343"
+        }
+      ]
+    };
+    const LOCATION_OTHER = "__other__"; // sentinel value for "type manually"
+
+    /* ---------------------------------------------------------------------------
+       2) FIELD BUILDER HELPERS — keep the schema below short and readable
+       --------------------------------------------------------------------------- */
+    function F(id, label, type, extra) {
+      return Object.assign({ id, label, type, required: false }, extra || {});
+    }
+    const TXT = (id, label, extra) => F(id, label, "text", extra);
+    const TA = (id, label, extra) => F(id, label, "textarea", extra);
+    const NUM = (id, label, unit, extra) => F(id, label, "number", Object.assign({ unit, min: 0 }, extra || {}));
+    const TEL = (id, label, extra) => F(id, label, "tel", Object.assign({
+      tooltip: "Enter a 10-digit mobile number, digits only (no +91 or spaces)."
+    }, extra || {}));
+    const DATE = (id, label, extra) => F(id, label, "date", extra);
+    const SEL = (id, label, options, extra) => F(id, label, "select", Object.assign({ options }, extra || {}));
+    const CHK = (id, label, options, extra) => F(id, label, "checkbox", Object.assign({ options }, extra || {}));
+    const FILE = (id, label, extra) => F(id, label, "file", Object.assign({ accept: "image/*,.pdf,.kml,.zip" }, extra || {}));
+    const SUB = (label) => ({ type: "subheading", label });
+    const YESNO = ["Yes", "No"];
+
+    function populationFields() {
+      const years = ["1991", "2001", "2011", "Current Year"];
+      const cols = ["Total", "Male", "Female"];
+      const out = [];
+      years.forEach((y) => {
+        cols.forEach((c) => {
+          const id = "s1_pop_" + y.replace(/\s+/g, "").toLowerCase() + "_" + c.toLowerCase();
+          out.push(NUM(id, `${y} — ${c}`, "persons", { group: "population" }));
+        });
+      });
+      return out;
+    }
+
+    /* ---------------------------------------------------------------------------
+       3) THE FULL SURVEY SCHEMA
+       --------------------------------------------------------------------------- */
+    const SECTIONS = [
+      {
+        id: "header",
+        title: "Survey Details",
+        shortTitle: "Survey Details",
+        subTitle: "Location & Date",
+        icon: "fa-clipboard-list",
+        color: "#0e7490",
+        description: "Every response is recorded against these three fields.",
+        fields: [
+          TXT("surveyor_name", "Name of the Surveyor", { required: true, icon: "fa-user" }),
+          DATE("survey_date", "Date of Survey", { required: true, icon: "fa-calendar-day" }),
+          SEL("state", "State", Object.keys(DISTRICT_DATABASE).sort(), {
+            required: true, icon: "fa-map", tooltip: "Pick a state, or choose \"Other (type manually)\" if yours is not listed."
+          }),
+          SEL("district", "District (with LGD Code)", [], {
+            required: true, icon: "fa-map-location-dot", tooltip: "Choose a state first — this list updates automatically with LGD codes."
+          }),
+          TXT("ulb", "ULB / Gram Panchayat", {
+            required: true, icon: "fa-city", placeholder: "Enter ULB or Gram Panchayat name", tooltip: "Enter the name of the Urban Local Body (ULB) or Gram Panchayat (GP)."
+          })
+        ]
+      },
+      {
+        id: "s1",
+        title: "Section 1: ULB Official Interview",
+        shortTitle: "ULB Official",
+        subTitle: "Admin & Policy",
+        icon: "fa-building-columns",
+        color: "#0284c7",
+        description: "Target Respondent: ULB Commissioner / CO / CC / Sanitary Inspector",
+        fields: [
+          SUB("Respondent Details"),
+          TXT("s1_resp_name", "Name and position of ULB official interviewed"),
+          TEL("s1_resp_contact", "Contact number"),
+
+          SUB("1.1 General & Administrative Information"),
+          TXT("s1_ulb_name", "1. Name of the ULB"),
+          NUM("s1_year_established", "2. Year ULB was established", "year", { min: 1800, max: new Date().getFullYear(), step: 1 }),
+          NUM("s1_area_size", "3. Area size under ULB jurisdiction", "sq. km", { step: "0.01" }),
+          NUM("s1_total_wards", "4. Total number of wards in the ULB", "wards", { step: 1 }),
+          FILE("s1_ward_map", "Upload ward map (Shapefile / KML / PDF)"),
+          SUB("5. Population (fill whichever census years you have data for)"),
+          ...populationFields(),
+          NUM("s1_residential_holdings", "6. Total number of residential holdings", "holdings", { step: 1 }),
+          NUM("s1_nonresidential_holdings", "7. Total number of non-residential holdings", "holdings", { step: 1 }),
+          NUM("s1_slum_notified", "8a. Slum details — Notified", "slums", { step: 1, group: "slum" }),
+          NUM("s1_slum_unnotified", "8b. Slum details — Unnotified", "slums", { step: 1, group: "slum" }),
+          NUM("s1_slum_total", "8c. Slum details — Total", "slums", { step: 1, group: "slum" }),
+          TXT("s1_co_name", "9. Name of Municipal/City Commissioner (CO Name)"),
+          TXT("s1_city_coord_name", "10a. City Coordinator's name", { group: "coord" }),
+          TEL("s1_city_coord_contact", "10b. City Coordinator's contact", { group: "coord" }),
+          TXT("s1_sanitary_inspector_name", "11a. Sanitary Inspector's name", { group: "si" }),
+          TEL("s1_sanitary_inspector_contact", "11b. Sanitary Inspector's contact", { group: "si" }),
+
+          SUB("1.2 Water Supply"),
+          NUM("s1_piped_holdings", "12. Total holdings with piped water supply", "holdings", { step: 1 }),
+          CHK("s1_water_source", "13. Source of water provided", ["River", "Canal", "Borewell", "Others"]),
+          NUM("s1_water_volume", "14. Volume of water supplied per day", "KLD (kilolitres/day)", { step: "0.1" }),
+          SEL("s1_water_frequency", "15. Frequency of water supply", ["Once per day", "Twice per day", "Every alternate day", "Once in three days", "Others"]),
+          NUM("s1_water_duration", "16. Duration of water supply", "hours", { step: "0.5", max: 24 }),
+          SEL("s1_water_charge_basis", "17. How water supply is charged", ["Based on pipe diameter", "Lump sum amount", "Based on usage", "Others"]),
+          NUM("s1_water_charge_amount", "18. Amount charged for water supply", "₹ per month", { step: 1 }),
+
+          SUB("1.3 Sanitation Infrastructure & Services"),
+          TXT("s1_sanitation_dept", "19. Department looking after sanitation activities"),
+          NUM("s1_individual_toilets", "20. Number of individual toilets in the city", "toilets", { step: 1 }),
+          NUM("s1_pt_ct_count", "21. Number of Public Toilets (PT) / Community Toilets (CT)", "units", { step: 1 }),
+          SEL("s1_fs_collection_system", "22. Faecal sludge collection system present", YESNO, { tooltip: "If Yes, also fill the capacity field below." }),
+          NUM("s1_fs_collection_capacity", "22a. If yes, specify capacity", "KLD", { step: "0.1" }),
+          CHK("s1_sewerage_coverage_type", "23a. Current sewerage network — drain type", ["Closed drain", "Open drain"]),
+          NUM("s1_sewerage_coverage_pct", "23b. Current sewerage network coverage", "%", { max: 100, step: "0.1" }),
+          TA("s1_project_inventory", "24. Inventory of projects — a) Treatment, b) Conveyance, c) FS Conveying, d) FS Treatment", {
+            placeholder: "e.g. a) STP 10 MLD (under construction) b) 25 km trunk sewer c) 2 suction vehicles d) FSTP 15 KLD (operational)"
+          }),
+
+          SUB("1.4 Desludging Vehicles & Operations (ULB Overview)"),
+          TA("s1_suction_vehicles", "25. Number and capacity of suction vehicles (Govt / Private, registered & non-registered)"),
+          TA("s1_sanctioned_vehicles", "26. Sanctioned suction vehicles recently (number & capacity)"),
+          TXT("s1_om_incharge_vehicle", "27a. In charge for O&M — Suction vehicle", { group: "om" }),
+          TXT("s1_om_incharge_fstp", "27b. In charge for O&M — FSTP", { group: "om" }),
+          TXT("s1_record_incharge_vehicle", "28a. In charge for record-keeping/complaints — Suction vehicle", { group: "record" }),
+          TXT("s1_record_incharge_fstp", "28b. In charge for record-keeping/complaints — FSTP", { group: "record" }),
+          TA("s1_citizen_contact", "29. Citizen contact method / Helpline number / Inquiry handler"),
+          TA("s1_hr_vehicle", "30a. Ground HR deployed — Suction vehicle", { group: "hr" }),
+          TA("s1_hr_fstp", "30b. Ground HR deployed — FSTP", { group: "hr" }),
+          SEL("s1_scheduled_desludging", "31. Scheduled Desludging plan status", ["Yes", "No", "In preparation"]),
+          TA("s1_desludging_challenges", "32. Possible challenges for scheduled desludging"),
+          TA("s1_fssm_challenges", "33. Specific challenges regarding FSSM"),
+
+          SUB("1.5 Private Desludging Operators & 1.6 Workforce"),
+          NUM("s1_private_vehicle_count", "34. Private vehicle count", "vehicles", { step: 1 }),
+          NUM("s1_private_trips", "35. Trips by private vehicles", "trips/day", { step: 1 }),
+          NUM("s1_private_charges", "36. Charges by private vehicles", "₹ per trip", { step: 1 }),
+          NUM("s1_private_monthly_expense", "37. Monthly expenses (private vehicles)", "₹ per month", { step: 1 }),
+          NUM("s1_private_revenue", "38. Revenue (private vehicles)", "₹ per month", { step: 1 }),
+          NUM("s1_service_area_radius", "39. Service area radius", "km", { step: "0.1" }),
+          TA("s1_staff_details", "40. Staff details — Technical / Non-Technical count & experience"),
+          TXT("s1_sw_lwm_fssm", "41. Sanitation Worker count for LWM/FSSM (Male/Female)", { placeholder: "e.g. Male: 6, Female: 2" }),
+          TXT("s1_sw_swm", "42. Sanitation Worker count for SWM (Male/Female)", { placeholder: "e.g. Male: 10, Female: 4" }),
+          SEL("s1_capacity_building", "43. Capacity building / training organized", YESNO),
+          SEL("s1_shg_involvement", "44. Self Help Group (SHG) involvement", YESNO),
+
+          SUB("1.7 Urban-Rural Linkage (URL) & 1.8 Manual Scavenging"),
+          TA("s1_sludge_from_villages", "45. Sludge disposal from nearby villages into FSTP"),
+          SEL("s1_mou_gp", "46. MoU exists with Gram Panchayats for URL", YESNO),
+          TXT("s1_mou_fs_loads", "47. FS loads disposed under MoU", { placeholder: "e.g. 4 trips/week" }),
+          FILE("s1_mou_upload", "48. Attach MoU copies"),
+          TA("s1_url_strategy_no_mou", "49. Strategy for URL if no MoU exists"),
+          SEL("s1_manual_scavenging_awareness", "50. Awareness of manual scavenging practice", YESNO),
+          NUM("s1_manual_scavenging_count", "51. Number of people engaged in manual scavenging", "persons", { step: 1 })
+        ]
+      },
+      {
+        id: "s2",
+        title: "Section 2: FSTP / STP Technical Assessment",
+        shortTitle: "FSTP / STP",
+        subTitle: "Plant Technical",
+        icon: "fa-water",
+        color: "#0d9488",
+        description: "Target Respondent: STP/FSTP Operator / Site Inspection",
+        fields: [
+          TXT("s2_city_name", "City / Town / GP Name"),
+          TXT("s2_fstp_location", "Location of FSTP/STP", { placeholder: "Google Maps link or lat, long", icon: "fa-location-dot" }),
+
+          SUB("2.1 Infrastructure Overview"),
+          CHK("s2_infrastructure", "Existing UWM infrastructure", ["Sewerage system", "Interception & Diversion (I&D)", "Sewage Pumping Station", "STP", "FSTP"]),
+
+          SUB("2.2 Sewerage System"),
+          NUM("s2_sewer_length", "Length of sewerage network", "km", { step: "0.01" }),
+          NUM("s2_sewer_coverage_pct", "Coverage", "%", { max: 100, step: "0.1" }),
+          TA("s2_sewer_unserved_areas", "Unserved areas"),
+          NUM("s2_sewer_design_period", "Design period", "years", { step: 1 }),
+          DATE("s2_sewer_commission_date", "Commissioning date"),
+          NUM("s2_sewer_connections", "Number of connections", "connections", { step: 1 }),
+          NUM("s2_sewer_cost", "Cost", "₹ Lakhs", { step: "0.01" }),
+          FILE("s2_sewer_dpr", "Upload DPR (sewerage system)"),
+          TA("s2_sewer_issues", "Operational issues (sewerage system)"),
+
+          SUB("2.3 Interception & Diversion (I&D)"),
+          TA("s2_id_drain_alignment", "Drain network alignment"),
+          TXT("s2_id_screen_grit", "Screen/grit details"),
+          TA("s2_id_dry_wet_diversion", "Dry/wet flow diversion"),
+          SEL("s2_id_type", "Type", ["Channel-based", "Pipe-based"]),
+          TXT("s2_id_dimensions", "Dimensions", { placeholder: "e.g. 2m x 1.5m", unit: "m" }),
+          NUM("s2_id_dry_weather_flow", "Dry weather flow", "KLD", { step: "0.1" }),
+          TA("s2_id_issues", "Operational issues (I&D)"),
+
+          SUB("2.4 Sewage Treatment Plant (STP)"),
+          NUM("s2_stp_implemented_capacity", "Implemented capacity", "MLD", { step: "0.01", group: "stpcap" }),
+          NUM("s2_stp_design_capacity", "Design capacity", "MLD", { step: "0.01", group: "stpcap" }),
+          NUM("s2_stp_current_load", "Current load", "MLD", { step: "0.01" }),
+          TA("s2_stp_input_characteristics", "Input characteristics", { placeholder: "BOD, COD, TSS, pH etc." }),
+          TXT("s2_stp_technology", "Technology used"),
+          NUM("s2_stp_footprint", "Footprint / area", "sq. m", { step: "0.1" }),
+          TXT("s2_stp_disposal_site", "Disposal site"),
+          SEL("s2_stp_water_reuse", "Treated water reuse", YESNO),
+          SEL("s2_stp_cpcb_compliance", "CPCB standards compliance", YESNO),
+          FILE("s2_stp_dpr", "Upload DPR (STP)"),
+
+          SUB("2.5 Faecal Sludge Treatment Plant (FSTP)"),
+          TXT("s2_fstp_geolocation", "Google location & distance from town", { placeholder: "lat, long / Maps link" }),
+          NUM("s2_fstp_distance", "Distance from town", "km", { step: "0.1" }),
+          NUM("s2_fstp_capacity", "KLD capacity", "KLD", { step: "0.1" }),
+          TA("s2_fstp_area_breakdown", "Area breakdown"),
+          NUM("s2_fstp_daily_trips", "Daily trips received", "trips/day", { step: 1 }),
+          TA("s2_fstp_technology", "Sequential treatment technology"),
+          TA("s2_fstp_outputs", "Outputs (treated water / biosolids)"),
+          TA("s2_fstp_quality_results", "Quality testing results"),
+          NUM("s2_fstp_dried_sludge_qty", "Dried sludge quantum", "kg/day", { step: "0.1", group: "sludgeqty" }),
+          TXT("s2_fstp_sludge_disposal", "Dried sludge disposal method", { group: "sludgeqty" }),
+          FILE("s2_fstp_dpr", "Upload DPR (FSTP)"),
+
+          SUB("2.6–2.7 Observations & O&M / Financial"),
+          SEL("s2_approach_road", "Approach road condition", ["Good", "Fair", "Poor"]),
+          SEL("s2_structural_condition", "Structural condition", ["Good", "Fair", "Poor"]),
+          TA("s2_wash_ppe_facilities", "WASH/PPE facilities availability"),
+          FILE("s2_landscaping_photos", "Upload landscaping photos", { multiple: true }),
+          TA("s2_resident_feedback", "Resident feedback"),
+          NUM("s2_vehicle_om_cost", "Vehicle monthly O&M cost", "₹ per month", { step: 1, group: "omcost" }),
+          NUM("s2_fstp_om_cost", "FSTP monthly O&M cost", "₹ per month", { step: 1, group: "omcost" }),
+          TXT("s2_cost_recovery_method", "Cost recovery method"),
+          CHK("s2_funding_sources", "Funding sources", ["SBM 2.0", "Augmentation", "State Funds", "ULB Own Funds", "Others"]),
+
+          SUB("2.8 Documentation Checklist"),
+          FILE("s2_site_photos", "Upload FSTP site photos", { multiple: true }),
+          FILE("s2_logbook_photos", "Upload O&M Logbook photos", { multiple: true })
+        ]
+      },
+      {
+        id: "s3",
+        title: "Section 3: Desludging Vehicle Operator Interview",
+        shortTitle: "Vehicle Operator",
+        subTitle: "Trucks & Trips",
+        icon: "fa-truck",
+        color: "#7c3aed",
+        description: "Target Respondent: Desludging Vehicle Driver / Owner",
+        fields: [
+          SUB("3.1 Operator Profile"),
+          SEL("s3_ownership", "1. Ownership", ["ULB", "Private", "Others"]),
+          SEL("s3_licensed", "2. Licensed by ULB", YESNO),
+          FILE("s3_license_upload", "Upload License copy (if licensed)"),
+          TXT("s3_operator_name", "3. Operator name"),
+          TXT("s3_company_name", "4. Company name"),
+          TA("s3_address", "5. Address"),
+          TEL("s3_phone", "6. Phone number"),
+          SEL("s3_experience", "7. Experience duration", ["<1 yr", "1–3 yrs", "3–5 yrs", "5–7 yrs", "7–10 yrs", ">10 yrs"]),
+          SEL("s3_vehicle_base", "8. Vehicle base location", ["Same town", "Another town"]),
+          SEL("s3_vehicle_base_distance", "8a. If another town, distance", ["1–5 km", "5–10 km", "10–20 km", ">20 km"]),
+
+          SUB("3.2–3.3 Operations & Trip Details"),
+          SEL("s3_truck_type", "9. Truck type", ["Tractor-mounted", "Truck-mounted"]),
+          NUM("s3_tank_capacity", "10. Tank capacity", "Litres (L)", { step: 1 }),
+          CHK("s3_systems_desludged", "11. Systems desludged", ["Septic tank", "Pits", "Apartment STP", "Others"]),
+          NUM("s3_nonpeak_trips", "12. Non-peak season trips", "trips/day", { step: 1 }),
+          TXT("s3_peak_months", "13. Peak season months", { placeholder: "e.g. June–September" }),
+          NUM("s3_peak_trips_day", "14a. Peak season trips", "trips/day", { step: 1, group: "peaktrips" }),
+          NUM("s3_peak_trips_week", "14b. Peak season trips", "trips/week", { step: 1, group: "peaktrips" }),
+          NUM("s3_peak_trips_month", "14c. Peak season trips", "trips/month", { step: 1, group: "peaktrips" }),
+          SEL("s3_avg_desludging_time", "15. Average desludging time", ["0–10 min", "10–20 min", "20–30 min", "30–45 min", ">45 min"]),
+          SEL("s3_max_travel_distance", "16. Maximum travel distance to disposal site", ["0–5 km", "5–10 km", "10–20 km", "20–30 km", ">30 km"]),
+
+          SUB("3.4 Practices, PPE & Safety"),
+          CHK("s3_disposal_locations", "17. Disposal locations used", ["Open land", "Farmlands", "FSTP", "STP", "Drains", "Water bodies", "Others"]),
+          TA("s3_hardened_sludge_handling", "18. Hardened sludge handling method"),
+          SEL("s3_disinfectant_usage", "19. Disinfectant usage", YESNO),
+          TA("s3_inaccessible_areas", "20. Inaccessible areas encountered"),
+          SEL("s3_ppe_usage", "21. PPE usage", YESNO),
+          CHK("s3_ppe_types", "22. PPE types used", ["Gloves", "Mask", "Gumboots", "Coverall", "Helmet", "Goggles"]),
+          TA("s3_ppe_nonuse_reason", "23. Reasons for non-use of PPE"),
+          CHK("s3_training_received", "24. Training received", ["PPE", "Hygiene", "ERSU", "None"]),
+
+          SUB("3.5 Health, Barriers & Financials"),
+          CHK("s3_health_issues", "25. Health issues in last 1 year", ["Diarrhea", "Skin rashes", "Musculoskeletal issues", "Respiratory issues", "Eye irritation", "None"]),
+          NUM("s3_doctor_expense", "26. Doctor expenses per visit", "₹ per visit", { step: 1 }),
+          SEL("s3_health_insurance", "27. Health insurance", YESNO),
+          TA("s3_authority_barriers", "28. Barriers faced — authority related"),
+          TA("s3_social_barriers", "29. Barriers faced — social"),
+          TA("s3_business_barriers", "30. Barriers faced — business"),
+          NUM("s3_charge_per_load", "31. Charge per load", "₹ per load", { step: 1 }),
+          TA("s3_pricing_factors", "32. Factors affecting pricing"),
+          NUM("s3_capex_cost", "33. Capital (capex) cost", "₹", { step: 1 }),
+          NUM("s3_opex_labour", "34a. Monthly opex — labour", "₹ per month", { step: 1, group: "opex" }),
+          NUM("s3_opex_fuel", "34b. Monthly opex — fuel", "₹ per month", { step: 1, group: "opex" }),
+          NUM("s3_opex_maintenance", "34c. Monthly opex — maintenance", "₹ per month", { step: 1, group: "opex" }),
+          NUM("s3_opex_tipping_fee", "34d. Monthly opex — tipping fee", "₹ per trip", { step: 1, group: "opex" }),
+          TA("s3_fs_market_demand", "35. Faecal sludge market demand / payments received from farmers")
+        ]
+      },
+      {
+        id: "s4",
+        title: "Section 4: Gram Panchayat / Community Interview",
+        shortTitle: "Gram Panchayat",
+        subTitle: "Rural Linkage",
+        icon: "fa-people-roof",
+        color: "#16a34a",
+        description: "Target Respondent: Sarpanch / GP Villagers",
+        fields: [
+          TXT("s4_gp_name", "Gram Panchayat Name"),
+          TXT("s4_resp_name_position", "Respondent Name & Position"),
+
+          SUB("4.1 URL & Sanitation Demand"),
+          TA("s4_iec_activities", "1. IEC and capacity-building activities for URL"),
+          TA("s4_desludging_demand", "2. Demand for desludging services in GP"),
+          TA("s4_willingness_to_pay", "3. Willingness to pay for desludging service", { placeholder: "Note the amount (₹) if one was quoted, and any conditions" }),
+
+          SUB("4.2 Existing Sanitation Systems"),
+          NUM("s4_ihhl_pct", "4a. IHHL percentage", "%", { max: 100, step: "0.1", group: "ihhl" }),
+          TA("s4_ihhl_situation", "4b. IHHL existing situation", { group: "ihhl" }),
+          CHK("s4_blackwater_mgmt", "5. Black water management (OSS types)", ["Single pits", "Twin pits", "Septic tanks", "Any other"]),
+          CHK("s4_greywater_mgmt", "6. Grey water management", ["Onsite units", "Drains", "Any other"]),
+          TA("s4_challenges_sarpanch", "7. GP sanitation challenges as perceived by Sarpanch"),
+          TA("s4_challenges_residents", "8. GP sanitation challenges as perceived by residents")
+        ]
+      }
+    ];
+
+    /* ============================================================================
+       4) RENDERER + APP LOGIC — you shouldn't need to touch anything below
+       ========================================================================== */
+    const state = { sectionIndex: 0, files: {} };
+
+    function autoTooltip(field) {
+      if (field.tooltip) return field.tooltip;
+      if (field.type === "number" && field.unit) return `Numbers only, in ${field.unit}.`;
+      if (field.type === "date") return "Use the date picker to avoid format mistakes.";
+      if (field.type === "select") return "Choose one option from the list.";
+      if (field.type === "checkbox") return "Tick all that apply.";
+      if (field.type === "file") return `Attach a file (JPG, PNG or PDF). Keep each file under ${CONFIG.MAX_FILE_MB} MB where possible.`;
+      return "";
+    }
+
+    function fieldWrapper(field, innerHTML) {
+      const req = field.required ? '<span class="req" title="Required">*</span>' : "";
+      const icon = field.icon ? `<i class="fa-solid ${field.icon} field-icon"></i>` : "";
+      const tip = autoTooltip(field);
+      const tipHTML = tip
+        ? `<button type="button" class="tip-btn" data-tip="${escapeAttr(tip)}" aria-label="Field help">
+         <i class="fa-solid fa-circle-info"></i>
+       </button>`
+        : "";
+      return `
+    <div class="field ${field.group ? "field--grouped" : ""}" data-field-id="${field.id}">
+      <label for="${field.id}">${icon}<span>${field.label}</span>${req}${tipHTML}</label>
+      ${innerHTML}
+      <p class="field-error" id="err-${field.id}"></p>
+    </div>`;
+    }
+
+    function escapeAttr(s) { return String(s).replace(/"/g, "&quot;"); }
+    function escapeHTML(s) { return String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
+
+    function renderField(field) {
+      const req = field.required ? "required" : "";
+      switch (field.type) {
+        case "text":
+          return fieldWrapper(field, `<input type="text" id="${field.id}" name="${field.id}" placeholder="${escapeAttr(field.placeholder || "Type your answer")}" ${req}>`);
+        case "textarea":
+          return fieldWrapper(field, `<textarea id="${field.id}" name="${field.id}" rows="3" placeholder="${escapeAttr(field.placeholder || "Type your answer")}" ${req}></textarea>`);
+        case "tel":
+          return fieldWrapper(field, `<input type="tel" id="${field.id}" name="${field.id}" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" ${req}>`);
+        case "date":
+          return fieldWrapper(field, `<input type="date" id="${field.id}" name="${field.id}" ${req}>`);
+        case "number": {
+          const min = field.min !== undefined ? `min="${field.min}"` : "";
+          const max = field.max !== undefined ? `max="${field.max}"` : "";
+          const step = field.step !== undefined ? `step="${field.step}"` : `step="any"`;
+          const unit = field.unit ? `<span class="unit-badge">${escapeHTML(field.unit)}</span>` : "";
+          return fieldWrapper(field, `
+        <div class="input-with-unit">
+          <input type="number" id="${field.id}" name="${field.id}" placeholder="0" ${min} ${max} ${step} ${req}>
+          ${unit}
+        </div>`);
+        }
+        case "select": {
+          const opts = (field.options || []).map((o) => `<option value="${escapeAttr(o)}">${escapeHTML(o)}</option>`).join("");
+          return fieldWrapper(field, `
+        <select id="${field.id}" name="${field.id}" ${req}>
+          <option value="">— Select —</option>
+          ${opts}
+        </select>`);
+        }
+        case "checkbox": {
+          const hasOthers = (field.options || []).some((o) => /other/i.test(o));
+          const boxes = (field.options || []).map((o, i) => `
+        <label class="chk-pill">
+          <input type="checkbox" name="${field.id}" value="${escapeAttr(o)}" data-group="${field.id}">
+          <span>${escapeHTML(o)}</span>
+        </label>`).join("");
+          const otherInput = hasOthers
+            ? `<input type="text" class="chk-other-text" id="${field.id}__other_text" placeholder="Please specify ‘Other’" style="display:none">`
+            : "";
+          return fieldWrapper(field, `<div class="chk-group" id="${field.id}">${boxes}</div>${otherInput}`);
+        }
+        case "file": {
+          const multi = field.multiple ? "multiple" : "";
+          return fieldWrapper(field, `
+        <div class="file-drop" data-for="${field.id}">
+          <input type="file" id="${field.id}" name="${field.id}" accept="${field.accept || "*"}" ${multi} ${req}>
+          <div class="file-drop-hint"><i class="fa-solid fa-cloud-arrow-up"></i> Click to attach ${field.multiple ? "file(s)" : "a file"}</div>
+          <div class="file-drop-list" id="${field.id}__list"></div>
+        </div>`);
+        }
+        default:
+          return "";
+      }
+    }
+
+    function renderSectionFields(fields) {
+      let html = "";
+      let i = 0;
+      while (i < fields.length) {
+        const f = fields[i];
+        if (f.type === "subheading") {
+          html += `<h3 class="subheading">${escapeHTML(f.label)}</h3>`;
+          i++;
+          continue;
+        }
+        if (f.group) {
+          const groupKey = f.group;
+          const groupFields = [];
+          while (i < fields.length && fields[i].group === groupKey) {
+            groupFields.push(fields[i]);
+            i++;
+          }
+          html += `<div class="field-grid">${groupFields.map(renderField).join("")}</div>`;
+          continue;
+        }
+        html += renderField(f);
+        i++;
+      }
+      return html;
+    }
+
+    function renderNav() {
+      const nav = document.getElementById("sectionNav");
+      if (!nav) return;
+      nav.innerHTML = SECTIONS.map((s, i) => {
+        const isActive = i === state.sectionIndex;
+        const isCompleted = i < state.sectionIndex;
+        return `
+    <button type="button" 
+            class="step-card ${isActive ? "active" : ""} ${isCompleted ? "completed" : ""}" 
+            data-index="${i}" 
+            style="--accent:${s.color}" 
+            title="${s.title}"
+            aria-current="${isActive ? "step" : "false"}">
+      <div class="step-card-header">
+        <span class="step-badge">
+          <span class="step-num">${i + 1}</span>
+          <i class="fa-solid fa-check step-done-icon"></i>
+        </span>
+        <span class="step-icon"><i class="fa-solid ${s.icon}"></i></span>
+      </div>
+      <div class="step-card-body">
+        <span class="step-title">${s.shortTitle || s.title.replace(/^Section \d+: /, "")}</span>
+        <span class="step-sub">${s.subTitle || ""}</span>
+      </div>
+      <div class="step-active-indicator"></div>
+    </button>`;
+      }).join("");
+
+      nav.querySelectorAll(".step-card").forEach((btn) => {
+        btn.addEventListener("click", () => goToSection(Number(btn.dataset.index)));
+      });
+    }
+
+    function renderSections() {
+      const main = document.getElementById("formSections");
+      main.innerHTML = SECTIONS.map((s, i) => `
+    <section class="survey-section ${i === state.sectionIndex ? "active" : ""}" data-index="${i}" style="--accent:${s.color}">
+      <div class="section-head">
+        <div class="section-icon"><i class="fa-solid ${s.icon}"></i></div>
+        <div>
+          <h2>${s.title}</h2>
+          <p class="section-desc">${s.description}</p>
+        </div>
+      </div>
+      <div class="section-fields">${renderSectionFields(s.fields)}</div>
+    </section>`).join("");
+      wireFileInputs();
+      wireCheckboxOthers();
+    }
+
+    function goToSection(index, shouldScroll = true) {
+      if (index < 0 || index >= SECTIONS.length) return;
+      state.sectionIndex = index;
+      document.querySelectorAll(".survey-section").forEach((sec) => {
+        sec.classList.toggle("active", Number(sec.dataset.index) === index);
+      });
+      document.querySelectorAll(".step-card").forEach((btn) => {
+        const bIndex = Number(btn.dataset.index);
+        btn.classList.toggle("active", bIndex === index);
+        btn.classList.toggle("completed", bIndex < index);
+        btn.setAttribute("aria-current", bIndex === index ? "step" : "false");
+      });
+      document.getElementById("prevBtn").disabled = index === 0;
+      document.getElementById("nextBtn").style.display = index === SECTIONS.length - 1 ? "none" : "inline-flex";
+      document.getElementById("submitBtn").style.display = index === SECTIONS.length - 1 ? "inline-flex" : "none";
+      updateProgress();
+      if (shouldScroll) {
+        const topTarget = document.getElementById("stepperContainer") || document.getElementById("formTop");
+        if (topTarget) {
+          window.scrollTo({ top: topTarget.offsetTop - 12, behavior: "smooth" });
+        }
+      }
+    }
+
+    function updateProgress() {
+      const current = state.sectionIndex;
+      const total = SECTIONS.length;
+      const pct = Math.round(((current + 1) / total) * 100);
+
+      const bar = document.getElementById("progressBar");
+      if (bar) bar.style.width = pct + "%";
+
+      const label = document.getElementById("progressLabel");
+      if (label) label.textContent = `Section ${current + 1} of ${total}`;
+
+      const pctBadge = document.getElementById("stepPctBadge");
+      if (pctBadge) pctBadge.innerHTML = `<i class="fa-solid fa-chart-line"></i> ${pct}% Complete`;
+
+      const curName = document.getElementById("stepCurrentName");
+      if (curName && SECTIONS[current]) {
+        curName.textContent = SECTIONS[current].title;
+      }
+
+      const stepBadge = document.getElementById("stepBadge");
+      if (stepBadge) {
+        stepBadge.innerHTML = `<i class="fa-solid fa-layer-group"></i> SECTION ${current + 1} OF ${total}`;
+      }
+    }
+
+    /* ---- Location cascading dropdowns ---- */
+    function wireLocationDropdowns() {
+      const stateSel = document.getElementById("state");
+      const districtSel = document.getElementById("district");
+      if (!stateSel || !districtSel) return;
+
+      function fillDistrictOptions(districts) {
+        districtSel.innerHTML = `<option value="">— Select District —</option>` +
+          districts.map((d) => `<option value="${escapeAttr(d.name + (d.lgd ? ` [LGD: ${d.lgd}]` : ''))}">${escapeHTML(d.name)}${d.lgd ? ` [LGD: ${escapeHTML(d.lgd)}]` : ''}</option>`).join("") +
+          `<option value="${LOCATION_OTHER}">Other (type manually)</option>`;
+      }
+
+      stateSel.addEventListener("change", () => {
+        if (stateSel.value === LOCATION_OTHER) {
+          swapForText(stateSel, "state");
+          fillDistrictOptions([]);
+          return;
+        }
+        const districts = DISTRICT_DATABASE[stateSel.value] || [];
+        fillDistrictOptions(districts);
+      });
+
+      districtSel.addEventListener("change", () => {
+        if (districtSel.value === LOCATION_OTHER) {
+          swapForText(districtSel, "district");
+        }
+      });
+    }
+    function maybeSwapForText() { /* placeholder for future symmetry, no-op */ }
+    function swapForText(selectEl, key) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = selectEl.id;
+      input.name = selectEl.name || selectEl.id;
+      input.placeholder = `Type ${key} name`;
+      input.required = selectEl.required;
+      input.className = "swapped-text";
+      selectEl.replaceWith(input);
+    }
+
+    /* ---- Tooltips ---- */
+    function wireTooltips() {
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".tip-btn");
+        document.querySelectorAll(".tip-bubble").forEach((b) => b.remove());
+        if (!btn) return;
+        const bubble = document.createElement("div");
+        bubble.className = "tip-bubble";
+        bubble.textContent = btn.dataset.tip;
+        btn.appendChild(bubble);
+        e.stopPropagation();
+      });
+    }
+
+    /* ---- Checkbox "Others" free text reveal ---- */
+    function wireCheckboxOthers() {
+      document.querySelectorAll(".chk-group").forEach((group) => {
+        group.addEventListener("change", () => {
+          const otherBox = [...group.querySelectorAll('input[type="checkbox"]')].find((c) => /other/i.test(c.value) && c.checked);
+          const otherInput = document.getElementById(group.id + "__other_text");
+          if (otherInput) otherInput.style.display = otherBox ? "block" : "none";
+        });
+      });
+    }
+
+    /* ---- File inputs: preview name + base64 capture ---- */
+    function wireFileInputs() {
+      document.querySelectorAll('.file-drop input[type="file"]').forEach((input) => {
+        input.addEventListener("change", async () => {
+          const listEl = document.getElementById(input.id + "__list");
+          const files = [...input.files];
+          listEl.innerHTML = files.map((f) => `<div class="file-chip"><i class="fa-solid fa-paperclip"></i> ${escapeHTML(f.name)} (${(f.size / 1024 / 1024).toFixed(2)} MB)</div>`).join("");
+          const oversize = files.find((f) => f.size / 1024 / 1024 > CONFIG.MAX_FILE_MB);
+          if (oversize) listEl.innerHTML += `<div class="file-warn"><i class="fa-solid fa-triangle-exclamation"></i> "${escapeHTML(oversize.name)}" is larger than ${CONFIG.MAX_FILE_MB} MB — upload may be slow.</div>`;
+          state.files[input.id] = await Promise.all(files.map(fileToBase64));
+        });
+      });
+    }
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve({ name: file.name, mimeType: file.type || "application/octet-stream", data: reader.result.split(",")[1] });
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    /* ---- Validation ---- */
+    function validateAll() {
+      let firstInvalidSection = -1;
+      let firstInvalidEl = null;
+      SECTIONS.forEach((section, sIdx) => {
+        section.fields.forEach((field) => {
+          if (field.type === "subheading" || !field.required) return;
+          const el = document.getElementById(field.id);
+          const errEl = document.getElementById("err-" + field.id);
+          let valid = true;
+          if (field.type === "checkbox") {
+            valid = document.querySelectorAll(`input[data-group="${field.id}"]:checked`).length > 0;
+          } else if (el) {
+            valid = el.value.trim() !== "" && (el.checkValidity ? el.checkValidity() : true);
+          }
+          if (errEl) errEl.textContent = valid ? "" : "This field is required.";
+          if (!valid && firstInvalidSection === -1) {
+            firstInvalidSection = sIdx;
+            firstInvalidEl = el;
+          }
+        });
+      });
+      if (firstInvalidSection !== -1) {
+        goToSection(firstInvalidSection);
+        if (firstInvalidEl) setTimeout(() => firstInvalidEl.focus(), 300);
+        return false;
+      }
+      return true;
+    }
+
+    /* ---- Collect + submit ---- */
+    function collectAnswers() {
+      const answers = {};
+      const filesPayload = {};
+      SECTIONS.forEach((section) => {
+        section.fields.forEach((field) => {
+          if (field.type === "subheading") return;
+          if (field.type === "checkbox") {
+            const checked = [...document.querySelectorAll(`input[data-group="${field.id}"]:checked`)].map((c) => c.value);
+            const otherInput = document.getElementById(field.id + "__other_text");
+            if (otherInput && otherInput.value.trim() && checked.some((v) => /other/i.test(v))) {
+              answers[field.id] = checked.filter((v) => !/other/i.test(v)).concat(`Other: ${otherInput.value.trim()}`).join(", ");
+            } else {
+              answers[field.id] = checked.join(", ");
+            }
+          } else if (field.type === "file") {
+            filesPayload[field.id] = state.files[field.id] || [];
+            answers[field.id] = (state.files[field.id] || []).map((f) => f.name).join(", ");
+          } else {
+            const el = document.getElementById(field.id);
+            answers[field.id] = el ? el.value : "";
+          }
+        });
+      });
+      return { answers, files: filesPayload };
+    }
+
+    async function submitForm() {
+      if (!validateAll()) return;
+      if (!CONFIG.SCRIPT_URL || CONFIG.SCRIPT_URL.indexOf("PASTE_YOUR") === 0) {
+        alert("The Google Apps Script URL hasn't been set up yet. See the setup guide — paste your Web App URL into CONFIG.SCRIPT_URL in FSSM_Survey_Script.js.");
+        return;
+      }
+      const submitBtn = document.getElementById("submitBtn");
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Submitting…`;
+
+      const { answers, files } = collectAnswers();
+      const payload = { timestamp: new Date().toISOString(), answers, files };
+
+      try {
+        const res = await fetch(CONFIG.SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" }, // avoids CORS preflight against Apps Script
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({ status: "ok" }));
+        if (data.status === "error") throw new Error(data.message || "Unknown error");
+        showSuccess();
+      } catch (err) {
+        showError(err.message || "Could not reach the server. Check your internet connection and try again.");
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit Survey`;
+      }
+    }
+
+    function showSuccess() {
+      document.getElementById("appWrap").style.display = "none";
+      document.getElementById("successScreen").style.display = "flex";
+    }
+    function showError(msg) {
+      const box = document.getElementById("errorToast");
+      box.querySelector("span").textContent = msg;
+      box.style.display = "flex";
+      setTimeout(() => (box.style.display = "none"), 6000);
+    }
+
+    function resetForm() {
+      state.sectionIndex = 0;
+      state.files = {};
+      document.getElementById("successScreen").style.display = "none";
+      document.getElementById("appWrap").style.display = "block";
+      renderSections();
+      goToSection(0);
+      document.querySelectorAll("input, textarea, select").forEach((el) => {
+        if (el.tagName === "SELECT") el.selectedIndex = 0; else el.value = "";
+      });
+      const submitBtn = document.getElementById("submitBtn");
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Submit Survey`;
+    }
+
+    /* ---- Init ---- */
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("survey_date_default") && (document.getElementById("survey_date_default").value = new Date().toISOString().slice(0, 10));
+      renderNav();
+      renderSections();
+      wireLocationDropdowns();
+      wireTooltips();
+      goToSection(0, false);
+
+      document.getElementById("prevBtn").addEventListener("click", () => goToSection(state.sectionIndex - 1));
+      document.getElementById("nextBtn").addEventListener("click", () => goToSection(state.sectionIndex + 1));
+      document.getElementById("submitBtn").addEventListener("click", submitForm);
+      document.getElementById("newResponseBtn").addEventListener("click", resetForm);
+
+      const dateInput = document.getElementById("survey_date");
+      if (dateInput) dateInput.value = new Date().toISOString().slice(0, 10);
+    });
+
+  </script>
+</body>
+
+</html>

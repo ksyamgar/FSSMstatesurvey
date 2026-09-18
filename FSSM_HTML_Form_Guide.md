@@ -1,17 +1,15 @@
 # FSSM Survey — HTML form + Google Sheet backend: quick setup
 
-The package includes **two versions of the same form** — use whichever is
-easier for you:
+The package includes the production-ready standalone app:
 
 | File | What it is |
 |---|---|
-| `FSSM_Survey_Form_AllInOne.html` | **Easiest option** — one file with styling and logic built in. Just open it in a browser. |
-| `FSSM_Survey_Form.html` + `FSSM_Survey_Style.css` + `FSSM_Survey_Script.js` | **Same form, split into 3 files** — use this set if you'd rather edit questions in a dedicated `.js` file, or if you're hosting on a platform that expects separate assets. Keep all three together and don't rename them — the HTML loads the other two by filename. |
-| `FSSM_Survey_Backend.gs.md` | Google Apps Script code — paste into your Sheet (needed either way) |
+| `index.html` | **Primary Web Application** — standalone file with embedded styles, full district database with LGD codes, and survey client logic. Ready for GitHub Pages and web browsers. |
+| `FSSM_Survey_Style.css` + `FSSM_Survey_Script.js` | **Modular assets** — split CSS and JS files for modular development. |
+| `district_database.json` | **District & LGD Database** — structured dataset for all states and districts. |
+| `FSSM_Survey_Backend.gs.md` | Google Apps Script code — paste into your Google Sheet backend. |
 
-Everything below refers to `FSSM_Survey_Form_AllInOne.html` for simplicity —
-if you're using the 3-file version instead, edit `FSSM_Survey_Script.js`
-directly wherever it says to edit "inside the `<script>` section."
+Everything below refers to `index.html` for simplicity.
 
 ## Steps (about 10 minutes total)
 
@@ -38,7 +36,7 @@ your own script; choose **Advanced → Go to [project name] (unsafe)** →
 `https://script.google.com/macros/s/XXXXXXXX/exec`.
 
 **4. Connect the form to the script.**
-Open `FSSM_Survey_Form_AllInOne.html` in any plain-text editor (Notepad,
+Open `index.html` in any plain-text editor (Notepad,
 TextEdit in plain-text mode, VS Code, etc. — not Word). Use Find (Ctrl/Cmd+F)
 for:
 
@@ -50,34 +48,25 @@ Replace the placeholder text between the quotes with the URL you copied.
 Save the file.
 
 **5. Test it.**
-Double-click `FSSM_Survey_Form_AllInOne.html` to open it in your browser.
+Double-click `index.html` to open it in your browser.
 Fill in a couple of fields and hit Submit. Check your Sheet — a "Responses"
 tab should appear with your answer.
 
-That's it — the form is live. Share this one `.html` file with your
+That's it — the form is live. Share `index.html` with your
 surveyors (or host it — see below).
 
 ## Hosting for field surveyors
 
-Opening the `.html` file directly from a phone/laptop works fine for
+Opening `index.html` directly from a phone/laptop works fine for
 testing and even for light real-world use — since it's a single file, you
 can email it, share it via WhatsApp/Drive, or drop it on a USB stick. For a
-bookmarkable link instead, upload the same single file to a free static
-host — GitHub Pages, Netlify Drop, or Google Sites' "embed HTML" all work,
-since there's only one file to upload now.
+bookmarkable link instead, host it directly on **GitHub Pages** (Settings → Pages → Deploy from main branch), Netlify Drop, or Google Sites.
 
 ## Editing the form later
 
 Everything about the questions — every field, its type, its unit, its
 dropdown options, whether it's required — lives inside the `<script>`
-section near the bottom of `FSSM_Survey_Form_AllInOne.html` (or, if you're
-using the 3-file version, in `FSSM_Survey_Script.js` directly — that one's
-easier to search since it's nothing but code). You never need to touch the
-visual layout/CSS to add, remove or change a question.
-
-If you edit the 3-file version, remember to make the matching edit in
-`FSSM_Survey_Form_AllInOne.html` too (and vice versa) if you want to keep
-both copies in sync — they don't update each other automatically.
+section near the bottom of `index.html` (or in `FSSM_Survey_Script.js`). You never need to touch the visual layout/CSS to add, remove or change a question.
 
 - **Add more States / Districts / ULBs:** find `const LOCATIONS = {` and
   add entries in the same nested shape (`State → District → [ULB names]`).

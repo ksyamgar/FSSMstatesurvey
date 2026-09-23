@@ -12,34 +12,48 @@
   <meta name="author" content="UNICEF Chhattisgarh &amp; Govt of Chhattisgarh">
   <meta name="theme-color" content="#063140">
 
-  <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+  <!-- Open Graph / Facebook / WhatsApp / Telegram / LinkedIn / iMessage -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fssmsurvey.netlify.app/">
   <meta property="og:site_name" content="FSSM Survey Platform">
   <meta property="og:title" content="FSSM &amp; URL Consolidated Survey Platform">
   <meta property="og:description" content="Statewide Urban-Rural Faecal Sludge &amp; Septage Management (FSSM) Consolidated Survey Platform — Government of Chhattisgarh &amp; UNICEF Joint Technical Initiative.">
-  <meta property="og:image" content="https://fssmsurvey.netlify.app/images/og-preview.png">
-  <meta property="og:image:secure_url" content="https://fssmsurvey.netlify.app/images/og-preview.png">
+  <meta property="og:image" content="https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png">
+  <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="FSSM Survey Platform Banner">
+  <meta property="og:image:alt" content="Faecal Sludge & Septage Management (FSSM) Consolidated Survey Hero Header">
+  <meta property="og:locale" content="en_IN">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://fssmsurvey.netlify.app/">
   <meta name="twitter:title" content="FSSM &amp; URL Consolidated Survey Platform">
   <meta name="twitter:description" content="Statewide Urban-Rural Faecal Sludge &amp; Septage Management (FSSM) Consolidated Survey Platform — Government of Chhattisgarh &amp; UNICEF Joint Technical Initiative.">
-  <meta name="twitter:image" content="https://fssmsurvey.netlify.app/images/og-preview.png">
-  <meta name="twitter:image:alt" content="FSSM Survey Platform Banner">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png">
+  <meta name="twitter:image:alt" content="Faecal Sludge & Septage Management (FSSM) Consolidated Survey Hero Header">
 
   <!-- WhatsApp & Messaging Fallback Tags -->
-  <meta property="og:image" itemprop="image" content="https://fssmsurvey.netlify.app/images/og-preview.png">
-  <link rel="image_src" href="https://fssmsurvey.netlify.app/images/og-preview.png">
+  <meta property="og:image" itemprop="image" content="https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png">
+  <link rel="image_src" href="https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png">
+  <link rel="image_src" href="images/og-preview.png">
 
   <!-- Favicons & App Icons -->
   <link rel="icon" type="image/png" href="images/FSSMlogo.png">
   <link rel="apple-touch-icon" href="images/FSSMlogo.png">
+
+  <!-- Structured Data / Schema.org for Search & Preview Bots -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FSSM & URL Consolidated Survey Platform",
+    "description": "Statewide Urban-Rural Faecal Sludge & Septage Management (FSSM) Consolidated Survey Platform — Government of Chhattisgarh & UNICEF Joint Technical Initiative.",
+    "applicationCategory": "GovernmentApplication",
+    "operatingSystem": "All",
+    "image": "https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png",
+    "thumbnailUrl": "https://raw.githubusercontent.com/ksyamgar/FSSMstatesurvey/main/images/og-preview.png"
+  }
+  </script>
 
   <!-- Styles & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -106,7 +120,7 @@
 
     /* ---------- Enhanced Hero Header with Smooth Fluid Gradient & Lite Ambient Motion ---------- */
     .app-header {
-      background: linear-gradient(180deg, #ffffff 0%, #ffffff 18%, #bce5f2 23%, #1e708a 29%, #094052 35%, #052633 60%, #031a23 100%);
+      background: linear-gradient(180deg, #ffffff 0px, #ffffff 76px, #155e75 92px, #083344 140px, #041c26 100%);
       color: #fff;
       padding: 16px 20px 52px;
       position: relative;
@@ -186,13 +200,14 @@
       margin-bottom: 24px;
       padding-bottom: 16px;
       border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .banner-logo-item {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .banner-logo {
@@ -234,13 +249,15 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
     }
 
     .banner-partner-divider {
       width: 1px;
       height: 32px;
       background: #cbd5e1;
+      flex-shrink: 0;
     }
 
     .official-trust-pill {
@@ -277,15 +294,17 @@
       gap: 6px;
       padding: 5px 13px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(8, 51, 68, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     }
 
     .header-protocol-pill i {
@@ -298,22 +317,23 @@
       gap: 8px;
       padding: 5px 14px 5px 8px;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: linear-gradient(135deg, rgba(14, 116, 144, 0.5) 0%, rgba(8, 51, 68, 0.85) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.55);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.03em;
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .glass-fssm-badge:hover {
       transform: translateY(-2px);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
-      border-color: rgba(255, 255, 255, 0.55);
+      background: linear-gradient(135deg, rgba(14, 116, 144, 0.7) 0%, rgba(8, 51, 68, 0.95) 100%);
+      border-color: rgba(56, 189, 248, 0.8);
       box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.7);
     }
 
@@ -703,7 +723,56 @@
 
     @media (max-width: 640px) {
       .app-header {
-        padding: 24px 16px 36px;
+        padding: 16px 12px 32px;
+        background: linear-gradient(180deg, #ffffff 0px, #ffffff 76px, #155e75 92px, #083344 135px, #041c26 100%);
+      }
+
+      .banner-logos-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        width: 100%;
+      }
+
+      .banner-partner-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .banner-partner-divider {
+        height: 28px;
+      }
+
+      .banner-logo-item {
+        flex-shrink: 0;
+      }
+
+      .banner-logo-aiilsg {
+        height: 38px;
+        max-width: 95px;
+      }
+
+      .banner-logo-sbm {
+        height: 40px;
+        max-width: 75px;
+      }
+
+      .banner-logo-cg {
+        height: 44px;
+        max-width: 48px;
+      }
+
+      .banner-logo-unicef {
+        height: 34px;
+        max-width: 110px;
       }
 
       .app-title {
@@ -1682,7 +1751,7 @@
           <img src="images/SBM%20logo21.png" alt="Swachh Bharat Mission" class="banner-logo banner-logo-sbm">
         </div>
 
-        <!-- Right Group: Chhattisgarh State Logo to the left of UNICEF, without text -->
+        <!-- Right Group: Chhattisgarh State Logo and UNICEF -->
         <div class="banner-partner-group">
           <div class="banner-logo-item" title="Government of Chhattisgarh">
             <img src="images/ChhattisgarhGovt.png" alt="Government of Chhattisgarh" class="banner-logo banner-logo-cg">
@@ -1690,10 +1759,6 @@
           <div class="banner-partner-divider"></div>
           <div class="banner-logo-item" title="UNICEF">
             <img src="images/UNICEF%20logo.png" alt="UNICEF" class="banner-logo banner-logo-unicef">
-          </div>
-          <div class="official-trust-pill">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Official Survey Portal</span>
           </div>
         </div>
       </div>

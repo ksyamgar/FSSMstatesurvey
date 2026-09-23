@@ -38,8 +38,8 @@
   <link rel="image_src" href="https://fssmsurvey.netlify.app/images/og-preview.png">
 
   <!-- Favicons & App Icons -->
-  <link rel="icon" type="image/png" href="images/app-icon-512.png">
-  <link rel="apple-touch-icon" href="images/app-icon-512.png">
+  <link rel="icon" type="image/png" href="images/FSSMlogo.png">
+  <link rel="apple-touch-icon" href="images/FSSMlogo.png">
 
   <!-- Styles & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -205,6 +205,11 @@
       transform: scale(1.04);
     }
 
+    .banner-logo-aiilsg {
+      height: 42px;
+      width: auto;
+    }
+
     .banner-logo-sbm {
       height: 44px;
       width: auto;
@@ -217,6 +222,11 @@
 
     .banner-logo-unicef {
       height: 38px;
+      width: auto;
+    }
+
+    .banner-logo-fssm {
+      height: 44px;
       width: auto;
     }
 
@@ -282,30 +292,85 @@
       color: #38bdf8;
     }
 
+    .glass-fssm-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px 5px 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-fssm-badge:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
+      border-color: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .fssm-glass-badge-logo {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+    }
+
     .app-title {
       display: flex;
-      gap: 18px;
-      align-items: flex-start;
+      gap: 20px;
+      align-items: stretch;
     }
 
     .header-icon-box {
-      flex: 0 0 52px;
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(6, 49, 64, 0.3));
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(10px);
+      flex: 0 0 106px;
+      width: 106px;
+      min-height: 106px;
+      align-self: stretch;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.08) 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      padding: 12px;
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
     }
 
-    .header-icon-box i {
-      font-size: 24px;
-      color: #38bdf8;
-      filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.6));
+    .header-icon-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .header-icon-box:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 32px -6px rgba(56, 189, 248, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.85);
+    }
+
+    .header-icon-box .fssm-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.28));
+      position: relative;
+      z-index: 1;
     }
 
     .app-title h1 {
@@ -646,13 +711,11 @@
       }
 
       .header-icon-box {
-        width: 44px;
-        height: 44px;
-        flex: 0 0 44px;
-      }
-
-      .header-icon-box i {
-        font-size: 20px;
+        width: 72px;
+        min-height: 72px;
+        flex: 0 0 72px;
+        border-radius: 14px;
+        padding: 8px;
       }
 
       .app-title h1 {
@@ -1125,10 +1188,39 @@
       max-width: 380px;
     }
 
-    .success-icon {
-      font-size: 52px;
-      color: var(--success);
-      margin-bottom: 14px;
+    .success-glass-logo-frame {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 253, 244, 0.7) 100%);
+      border: 1.5px solid rgba(187, 247, 208, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      box-shadow: 0 12px 28px -6px rgba(22, 163, 74, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+
+    .success-glass-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .success-badge-corner {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      color: #16a34a;
+      font-size: 22px;
+      background: #ffffff;
+      border-radius: 50%;
+      line-height: 1;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     .success-card h2 {
@@ -1338,6 +1430,11 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
+    .footer-logo-aiilsg {
+      height: 32px;
+      width: auto;
+    }
+
     .footer-logo-cg {
       height: 38px;
       width: auto;
@@ -1351,6 +1448,31 @@
     .footer-logo-unicef {
       height: 28px;
       width: auto;
+    }
+
+    .footer-logo-fssm {
+      height: 32px;
+      width: auto;
+    }
+
+    .footer-glass-icon-frame {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 3px;
+    }
+
+    .footer-fssm-mini {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .footer-logo-sep {
@@ -1550,7 +1672,12 @@
     <div class="app-header-inner">
       <!-- Integrated Institutional Logos Row inside Blue Banner (Clean, No White Boxes) -->
       <div class="banner-logos-row">
-        <!-- Leftest: Swachh Bharat Mission Logo -->
+        <!-- Leftmost: AIILSG Logo -->
+        <div class="banner-logo-item" title="All India Institute of Local Self-Government (AIILSG)">
+          <img src="images/AIILSG_logo.png" alt="AIILSG" class="banner-logo banner-logo-aiilsg">
+        </div>
+
+        <!-- Center: Swachh Bharat Mission Logo -->
         <div class="banner-logo-item" title="Swachh Bharat Mission">
           <img src="images/SBM%20logo21.png" alt="Swachh Bharat Mission" class="banner-logo banner-logo-sbm">
         </div>
@@ -1573,6 +1700,10 @@
 
       <!-- Diagnostic Protocol Badges -->
       <div class="header-badge-row">
+        <span class="glass-fssm-badge">
+          <img src="images/FSSMlogo.png" alt="FSSM Logo" class="fssm-glass-badge-logo">
+          <span>FSSM &amp; URL Initiative</span>
+        </span>
         <span class="header-protocol-pill"><i class="fa-solid fa-shield-halved"></i> Official Baseline Survey
           Protocol</span>
         <span class="header-protocol-pill"><i class="fa-solid fa-layer-group" style="color: #2dd4bf;"></i> 5 Integrated
@@ -1581,8 +1712,8 @@
 
       <!-- Main Title & Description -->
       <div class="app-title">
-        <div class="header-icon-box">
-          <i class="fa-solid fa-droplet"></i>
+        <div class="header-icon-box" title="Faecal Sludge & Septage Management Initiative">
+          <img src="images/FSSMlogo.png" alt="FSSM Logo" class="fssm-logo-img">
         </div>
         <div>
           <h1>Faecal Sludge &amp; Septage Management (FSSM) <br class="br-desktop">&amp; Urban-Rural Linkage (URL)
@@ -1634,7 +1765,10 @@
 
   <div id="successScreen" class="success-screen">
     <div class="success-card">
-      <i class="fa-solid fa-circle-check success-icon"></i>
+      <div class="success-glass-logo-frame">
+        <img src="images/FSSMlogo.png" alt="FSSM Survey Platform" class="success-glass-logo">
+        <div class="success-badge-corner"><i class="fa-solid fa-circle-check"></i></div>
+      </div>
       <h2>Response recorded</h2>
       <p>Thank you — this survey has been saved to the response sheet.</p>
       <button type="button" id="newResponseBtn" class="btn btn-primary"><i class="fa-solid fa-rotate-left"></i> Submit
@@ -1652,11 +1786,15 @@
       <!-- Top Partner & Trust Strip -->
       <div class="footer-top-row">
         <div class="footer-partners-badge">
+          <img src="images/AIILSG_logo.png" alt="AIILSG" class="footer-logo footer-logo-aiilsg">
+          <div class="footer-logo-sep"></div>
           <img src="images/SBM%20logo21.png" alt="Swachh Bharat Mission" class="footer-logo footer-logo-sbm">
           <div class="footer-logo-sep"></div>
           <img src="images/ChhattisgarhGovt.png" alt="Government of Chhattisgarh" class="footer-logo footer-logo-cg">
           <div class="footer-logo-sep"></div>
           <img src="images/UNICEF%20logo.png" alt="UNICEF" class="footer-logo footer-logo-unicef">
+          <div class="footer-logo-sep"></div>
+          <img src="images/FSSMlogo.png" alt="FSSM Initiative" class="footer-logo footer-logo-fssm" title="FSSM Initiative">
         </div>
         <div class="footer-badge-side">
           <div class="footer-trust-pill">
@@ -1671,7 +1809,9 @@
         <!-- Col 1: Platform Overview -->
         <div class="footer-col">
           <div class="footer-col-header">
-            <i class="fa-solid fa-droplet footer-accent-icon"></i>
+            <span class="footer-glass-icon-frame">
+              <img src="images/FSSMlogo.png" alt="FSSM Logo" class="footer-fssm-mini">
+            </span>
             <span>Consolidated FSSM Platform</span>
           </div>
           <p class="footer-col-desc">
